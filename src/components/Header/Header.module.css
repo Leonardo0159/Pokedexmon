@@ -1,0 +1,119 @@
+.header {
+    background-color: #FFF;
+    width: 100vw;
+}
+
+.container {
+    margin: 0 15vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.headerTop {
+    display: flex;
+    flex-direction: row;
+}
+
+.email {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.phone {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.headerMain {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 165px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.search {
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input{
+    height: 2.5rem;
+    width: 38rem;
+    padding-left: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    color: black;
+}
+
+.search button {
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: #ffc200;
+    border: 1px solid #ffc200;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background-color: #375daa;
+    border: 1px solid #375daa;
+}
+
+.login {
+    flex: 0.5;
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.login button {
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: #ffc200;
+    border: 1px solid #ffc200;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.login button:hover {
+    background-color: #375daa;
+    border: 1px solid #375daa;
+}
+
+.headerBotton {
+}
+
+.headerBotton nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerBotton nav ul li{
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.headerBotton nav ul li:hover{
+    color: rgb(70, 70, 70);
+}

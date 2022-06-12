@@ -1,0 +1,66 @@
+.footer {
+    background-color: #2f2e2e;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footerTop {
+    margin: 0 15vw;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.sideLeftTop {
+    padding-top: 0.6rem;
+}
+
+.linkApploja {
+    font-size: 21px;
+    font-weight: bold;
+    color: white;
+}
+
+.sideRightTop {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+}
+
+.links nav{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.links nav ul{
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menuLink {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.footerCenter {
+    margin: 2rem 15vw;
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.sideLeftCenter {
+    flex: 1;
+    padding-right: 2.5rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    
+}

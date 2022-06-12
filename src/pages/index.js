@@ -1,4 +1,7 @@
 import Head from 'next/head'
+import { Footer } from '../components/Footer'
+import { Header } from '../components/Header'
+import { PokemonList } from '../components/PokemonList'
 
 export default function Home() {
   return (
@@ -9,7 +12,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      
+      <Header />
+      <PokemonList />
+      <Footer />
 
     </div>
   )
