@@ -62,5 +62,38 @@
 }
 
 @media screen and (max-width: 768px) {
+    .footerTop {
+        margin: 0 2vw;
+    }
+
+    .sideLeftTop {
+        display: none;
+    }
+
+    .sideRightTop {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .menuLink {
+        font-size: 9px;
+    }
+
+    .footerCenter {
+        margin: 0rem 2vw;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        flex-direction: column;
+        padding: 0 2rem;
+    }
+
+    .sideLeftCenter {
+        padding-right: 0rem;
+        margin-bottom: 0rem;
+    }
     
+    .sideRightCenter {
+        padding-left: 0rem;
+    }
 }

@@ -9,26 +9,6 @@
     flex-direction: column;
 }
 
-.headerTop {
-    display: flex;
-    flex-direction: row;
-}
-
-.email {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.phone {
-    flex: 1;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 0.5rem;
-}
-
 .headerMain {
     display: flex;
     flex-direction: row;
@@ -116,4 +96,7 @@
 
 .headerBotton nav ul li:hover{
     color: rgb(70, 70, 70);
+}
+
+@media screen and (max-width: 768px) {
 }

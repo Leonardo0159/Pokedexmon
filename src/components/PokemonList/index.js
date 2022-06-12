@@ -16,7 +16,7 @@ export const PokemonList = () => {
                     let dataPokemon = {
                         name: data.name,
                         id: data.id,
-                        img: data.sprites.other.dream_world.front_default
+                        img: data.sprites.other['official-artwork'].front_default
                     }
 
                     setPokemonListInfo(old => [...old, dataPokemon]);
