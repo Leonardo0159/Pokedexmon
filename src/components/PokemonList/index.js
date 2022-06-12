@@ -2,36 +2,47 @@ import styles from "./PokemonList.module.css";
 import { get } from "../../service/api";
 import { useEffect, useState } from "react";
 
+let nextUrl;
 export const PokemonList = () => {
     const [pokemonListInfo, setPokemonListInfo] = useState([]);
+    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=40&offset=0');
+
 
     const loadAll = async () => {
-        console.log("teste a: ", pokemonListInfo)
-        if (pokemonListInfo.length == 0) {
-            let list = await get('https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0');
 
-            for (let i = 0; i < list.results.length; i++) {
+        let list = await get(url);
+        console.log(list.next)
+        nextUrl = list.next;
+        for (let i = 0; i < list.results.length; i++) {
 
-                get(list.results[i].url).then((data) => {
-                    let dataPokemon = {
-                        name: data.name,
-                        id: data.id,
-                        img: data.sprites.other['official-artwork'].front_default
-                    }
+            get(list.results[i].url).then((data) => {
+                let dataPokemon = {
+                    name: data.name,
+                    id: data.id,
+                    img: data.sprites.other['official-artwork'].front_default
+                }
 
-                    setPokemonListInfo(old => [...old, dataPokemon]);
-                });
-            }
+                setPokemonListInfo(old => [...old, dataPokemon]);
+            });
         }
+
     }
 
     useEffect(() => {
         loadAll();
-    });
+    }, [url]);
+
+    const nextPage = () => {
+        console.log(url)
+        console.log(nextUrl)
+        setPokemonListInfo([])
+        setUrl(nextUrl);
+    }
 
     return (
         <div className={styles.pokemonList}>
             <div className={styles.container}>
+                <button onClick={nextPage}>Proximo</button>
                 <div className={styles.boxes}>
                     {pokemonListInfo.map((item, key) => (
                         <div key={key} className={styles.box}>
