@@ -1,18 +1,30 @@
 import styles from "./PokemonList.module.css";
 import { get } from "../../service/api";
 import { useEffect, useState } from "react";
+import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
 
-let nextUrl;
+let nextUrl = '';
+let previousUrl = '';
+let pagina = 0;
 export const PokemonList = () => {
     const [pokemonListInfo, setPokemonListInfo] = useState([]);
     const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=40&offset=0');
 
-
     const loadAll = async () => {
-
         let list = await get(url);
-        console.log(list.next)
-        nextUrl = list.next;
+
+        if (list.next != null) {
+            nextUrl = list.next;
+        } else {
+            nextUrl = "";
+        }
+
+        if (list.previous != null) {
+            previousUrl = list.previous;
+        } else {
+            previousUrl = ""
+        }
+
         for (let i = 0; i < list.results.length; i++) {
 
             get(list.results[i].url).then((data) => {
@@ -25,7 +37,6 @@ export const PokemonList = () => {
                 setPokemonListInfo(old => [...old, dataPokemon]);
             });
         }
-
     }
 
     useEffect(() => {
@@ -33,19 +44,55 @@ export const PokemonList = () => {
     }, [url]);
 
     const nextPage = () => {
-        console.log(url)
-        console.log(nextUrl)
-        setPokemonListInfo([])
-        setUrl(nextUrl);
+        if (nextUrl != "") {
+            pagina = pagina + 1;
+            setPokemonListInfo([])
+            setUrl(nextUrl);
+        }
+    }
+
+    const previousPage = () => {
+        if (previousUrl != "") {
+            pagina = pagina - 1;
+            setPokemonListInfo([])
+            setUrl(previousUrl);
+        }
+    }
+
+    const clickPokemon = (item) => {
+        alert(item.name)
     }
 
     return (
         <div className={styles.pokemonList}>
             <div className={styles.container}>
-                <button onClick={nextPage}>Proximo</button>
+                <div className={styles.controllerPages}>
+                    {(() => {
+                        if (previousUrl == "") {
+                            return (
+                                <a onClick={previousPage}><BsFillArrowLeftCircleFill size={35} color="#CCCCCC" /></a>
+                            )
+                        } else {
+                            return (
+                                <a onClick={previousPage}><BsFillArrowLeftCircleFill size={35} color="#ffc200" /></a>
+                            )
+                        }
+                    })()}
+                    {(() => {
+                        if (nextUrl == "") {
+                            return (
+                                <a onClick={nextPage}><BsFillArrowRightCircleFill size={35} color="#CCCCCC" /></a>
+                            )
+                        } else {
+                            return (
+                                <a onClick={nextPage}><BsFillArrowRightCircleFill size={35} color="#ffc200" /></a>
+                            )
+                        }
+                    })()}
+                </div>
                 <div className={styles.boxes}>
                     {pokemonListInfo.map((item, key) => (
-                        <div key={key} className={styles.box}>
+                        <div onClick={() => clickPokemon(item)} key={key} className={styles.box}>
                             <div className={styles.image}>
                                 <img src={item.img} />
                             </div>
@@ -57,6 +104,30 @@ export const PokemonList = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+                <div className={styles.controllerPages}>
+                {(() => {
+                        if (previousUrl == "") {
+                            return (
+                                <a onClick={previousPage}><BsFillArrowLeftCircleFill size={35} color="#CCCCCC" /></a>
+                            )
+                        } else {
+                            return (
+                                <a onClick={previousPage}><BsFillArrowLeftCircleFill size={35} color="#ffc200" /></a>
+                            )
+                        }
+                    })()}
+                    {(() => {
+                        if (nextUrl == "") {
+                            return (
+                                <a onClick={nextPage}><BsFillArrowRightCircleFill size={35} color="#CCCCCC" /></a>
+                            )
+                        } else {
+                            return (
+                                <a onClick={nextPage}><BsFillArrowRightCircleFill size={35} color="#ffc200" /></a>
+                            )
+                        }
+                    })()}
                 </div>
             </div>
         </div>
