@@ -20,28 +20,6 @@ export const Header = () => {
               <BsSearch size={20} />
             </button>
           </div>
-          <div className={styles.login}>
-            <Link href="/admin">
-              <button>
-                <FaUserCircle size={20} />
-              </button>
-            </Link>
-            <button>
-              <BsCartFill size={20} />
-            </button>
-          </div>
-        </div>
-        <div className={styles.headerBotton}>
-          <nav>
-            <ul>
-              <li>POKÉMONS</li>
-              <li>POKÉMONS</li>
-              <li>POKÉMONS</li>
-              <li>POKÉMONS</li>
-              <li>POKÉMONS</li>
-              <li>POKÉMONS</li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
