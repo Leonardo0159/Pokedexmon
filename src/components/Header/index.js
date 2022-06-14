@@ -1,7 +1,5 @@
 import styles from "./Header.module.css";
-import { BsSearch, BsCartFill, BsTelephoneFill } from "react-icons/bs";
-import { FaUserCircle } from "react-icons/fa";
-import { AiOutlineMail } from "react-icons/ai";
+import { BsSearch } from "react-icons/bs";
 import Link from "next/link";
 
 export const Header = () => {
