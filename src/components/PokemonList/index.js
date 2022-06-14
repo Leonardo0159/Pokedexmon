@@ -2,6 +2,7 @@ import styles from "./PokemonList.module.css";
 import { get } from "../../service/api";
 import { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
+import Link from "next/link";
 
 let nextUrl = '';
 let previousUrl = '';
@@ -60,7 +61,7 @@ export const PokemonList = () => {
     }
 
     const clickPokemon = (item) => {
-        alert(item.name)
+
     }
 
     return (
@@ -92,21 +93,23 @@ export const PokemonList = () => {
                 </div>
                 <div className={styles.boxes}>
                     {pokemonListInfo.map((item, key) => (
-                        <div onClick={() => clickPokemon(item)} key={key} className={styles.box}>
-                            <div className={styles.image}>
-                                <img src={item.img} />
+                        <Link href={'/pokemon/' + item.name}>
+                            <div key={key} className={styles.box}>
+                                <div className={styles.image}>
+                                    <img src={item.img} />
+                                </div>
+                                <div className={styles.number}>
+                                    <span>#{item.id}</span>
+                                </div>
+                                <div className={styles.name}>
+                                    <span>{item.name}</span>
+                                </div>
                             </div>
-                            <div className={styles.number}>
-                                <span>#{item.id}</span>
-                            </div>
-                            <div className={styles.name}>
-                                <span>{item.name}</span>
-                            </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
                 <div className={styles.controllerPages}>
-                {(() => {
+                    {(() => {
                         if (previousUrl == "") {
                             return (
                                 <a onClick={previousPage}><BsFillArrowLeftCircleFill size={35} color="#CCCCCC" /></a>
