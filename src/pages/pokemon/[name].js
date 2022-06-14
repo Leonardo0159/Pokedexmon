@@ -5,10 +5,7 @@ import { Footer } from "../../components/Footer";
 import { PokemonPresentation } from "../../components/PokemonPresentation";
 
 export default function PokemonDetails() {
-
     const router = useRouter();
-
-    console.log("rota", router.query.name);
 
     return (
         <div>
