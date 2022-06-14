@@ -60,8 +60,12 @@ export const PokemonList = () => {
         }
     }
 
-    const clickPokemon = (item) => {
-
+    function compareId(a, b) {
+        if (a.id < b.id)
+            return -1;
+        if (a.id > b.id)
+            return 1;
+        return 0;
     }
 
     return (
@@ -92,7 +96,7 @@ export const PokemonList = () => {
                     })()}
                 </div>
                 <div className={styles.boxes}>
-                    {pokemonListInfo.map((item, key) => (
+                    {pokemonListInfo.sort(compareId) && pokemonListInfo.map((item, key) => (
                         <Link key={key} href={'/pokemon/' + item.name}>
                             <div className={styles.box}>
                                 <div className={styles.image}>
