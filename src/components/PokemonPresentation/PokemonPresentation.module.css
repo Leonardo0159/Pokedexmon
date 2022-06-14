@@ -1,0 +1,126 @@
+.pokemonPresentation {
+    background-color: #f4f4f4;
+    width: 100vw;
+}
+
+.container {
+    margin: 0 15vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.presentation {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.sideLeft {
+    flex: 1;
+}
+
+.boxImage {
+    height: 31rem;
+    margin: 1rem 0;
+    background-color: #fff;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.presentationImage {
+    margin: 1rem 0;
+    width: 85%;
+    height: 387px;
+}
+
+.presentationImage img{
+    width: 100%;
+    height: 100%;
+}
+
+.boxTypes {
+    margin-bottom: 1rem;
+}
+
+.pokemonTypes {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+.sideRight {
+    flex: 1;
+}
+
+.box {
+    height: 31rem;
+    margin: 1rem 0;
+    background-color: #fff;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.pokemonTitle {
+    margin-bottom: 1rem;
+    font-size: 28px;
+}
+
+.pokemonTitle h3{
+    margin: 0;
+    padding: 0;
+}
+
+.glass {
+    width: 10rem;
+    background-color: green;
+    border-radius: 25px;
+    padding: 0.3rem 1rem;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.poison {
+    width: 10rem;
+    background-color: purple;
+    border-radius: 25px;
+    padding: 0.3rem 1rem;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin: 0 5vw;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .boxImage {
+        padding: 0;
+        padding: 1rem 0;
+        margin: 0;
+        margin-top: 2rem;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .box {
+        height: auto;
+    }
+
+    .presentation {
+        flex-direction: column;
+    }
+}
+

@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import Head from 'next/head'
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
+import { PokemonPresentation } from "../../components/PokemonPresentation";
 
 export default function PokemonDetails() {
 
@@ -19,6 +20,7 @@ export default function PokemonDetails() {
             </Head>
 
             <Header />
+            <PokemonPresentation pokemon={router.query.name}/>
             <Footer />
         </div>
     )
