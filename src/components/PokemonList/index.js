@@ -93,8 +93,8 @@ export const PokemonList = () => {
                 </div>
                 <div className={styles.boxes}>
                     {pokemonListInfo.map((item, key) => (
-                        <Link href={'/pokemon/' + item.name}>
-                            <div key={key} className={styles.box}>
+                        <Link key={key} href={'/pokemon/' + item.name}>
+                            <div className={styles.box}>
                                 <div className={styles.image}>
                                     <img src={item.img} />
                                 </div>
