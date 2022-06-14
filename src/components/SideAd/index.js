@@ -28,7 +28,7 @@ const SideAd = () => {
   return (
     <ins
       className="adsbygoogle"
-      style={{ display: "inline-block", width: "300px", height: "150px" }}
+      style={{ display: "inline-block", width: "100%", height: "150px" }}
       data-ad-client="ca-pub-9645579603385719"
       data-ad-slot="8092659509"
     ></ins>
