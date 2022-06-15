@@ -6,6 +6,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 export const PokemonPresentation = (props) => {
 
     const pokemonInfo = props.pokemonInfo;
+    const pokemonSpecies = props.pokeSpecies;
 
     const styleType1 = () => {
         if (pokemonInfo) {
@@ -216,6 +217,31 @@ export const PokemonPresentation = (props) => {
                                     }
                                 })()}
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.presentation}>
+                    <div className={styles.sideLeft}>
+                        <div className={styles.boxDescription}>
+                            <h3>Description</h3>
+                            {(() => {
+                                if (pokemonSpecies) {
+                                    const descriptionEn = "";
+                                    for (let i = 0; i < pokemonSpecies.flavor_text_entries.length; i++) {
+                                        if (pokemonSpecies.flavor_text_entries[i].language.name == "en") {
+                                            descriptionEn = pokemonSpecies.flavor_text_entries[i].flavor_text;
+                                            break;
+                                        }
+                                    }
+                                    return (
+                                        <span>{descriptionEn}</span>
+                                    )
+                                } else {
+                                    return (
+                                        ""
+                                    )
+                                }
+                            })()}
                         </div>
                     </div>
                 </div>
