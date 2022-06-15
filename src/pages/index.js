@@ -4,8 +4,16 @@ import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { Loading } from '../components/Loading'
 import { PokemonList } from '../components/PokemonList'
+import ReactGA from 'react-ga4';
+import { useEffect } from 'react'
 
+ReactGA.initialize('G-XS8VZGMJ08');
 export default function Home() {
+
+  useEffect(() => {
+    ReactGA.send("pageview");
+  })
+
   return (
     <div>
       <Head>
