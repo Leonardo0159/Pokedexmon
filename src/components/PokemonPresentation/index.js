@@ -4,19 +4,8 @@ import styles from './PokemonPresentation.module.css'
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 export const PokemonPresentation = (props) => {
-    const pokemon = props.pokemon;
-    const [pokemonInfo, setPokemonInfo] = useState();
 
-    const loadAll = async () => {
-        if (pokemon) {
-            let poke = await get("https://pokeapi.co/api/v2/pokemon/" + pokemon);
-            setPokemonInfo(poke);
-        }
-    }
-
-    useEffect(() => {
-        loadAll();
-    }, [pokemon]);
+    const pokemonInfo = props.pokemonInfo;
 
     const styleType1 = () => {
         if (pokemonInfo) {
@@ -159,9 +148,18 @@ export const PokemonPresentation = (props) => {
                     <div className={styles.sideRight}>
                         <div className={styles.box}>
                             <div className={styles.pokemonTitle}>
-                                <h1>{
-                                    upperCase(pokemon)
-                                }</h1>
+                                <h1>{(() => {
+                                    if (pokemonInfo) {
+                                        return (
+                                            upperCase(pokemonInfo.name)
+                                        )
+                                    } else {
+                                        return (
+                                            ""
+                                        )
+                                    }
+                                })()}
+                                </h1>
                             </div>
                             <div className={styles.pokemonAttributes}>
                                 {(() => {

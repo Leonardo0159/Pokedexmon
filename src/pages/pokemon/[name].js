@@ -3,9 +3,26 @@ import Head from 'next/head'
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { PokemonPresentation } from "../../components/PokemonPresentation";
+import { Loading } from "../../components/Loading";
+import { useEffect, useState } from "react";
+import { get } from '../../service/api';
 
 export default function PokemonDetails() {
     const router = useRouter();
+    const [pokemonInfo, setPokemonInfo] = useState();
+    const [loading, setLoading] = useState(true);
+
+    const loadAll = async () => {
+        if (router.query.name) {
+            let poke = await get("https://pokeapi.co/api/v2/pokemon/" + router.query.name);
+            setPokemonInfo(poke);
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        loadAll();
+    }, [router.query.name]);
 
     return (
         <div>
@@ -25,9 +42,15 @@ export default function PokemonDetails() {
                 <meta property="og:image:height" content="224" />
             </Head>
 
-            <Header />
-            <PokemonPresentation pokemon={router.query.name} />
-            <Footer />
+            {loading ? (
+                <Loading />
+            ) : (
+                <div>
+                    <Header />
+                    <PokemonPresentation pokemonInfo={pokemonInfo} />
+                    <Footer />
+                </div>
+            )}
         </div>
     )
 }

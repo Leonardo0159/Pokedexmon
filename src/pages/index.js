@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { Ads } from '../components/Ads'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
+import { Loading } from '../components/Loading'
 import { PokemonList } from '../components/PokemonList'
 
 export default function Home() {
