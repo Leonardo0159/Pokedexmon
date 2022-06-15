@@ -10,7 +10,7 @@ export const Footer = () => {
       <div className={styles.footerTop}>
         <div className={styles.sideLeftTop}>
           <div className={styles.logo}>
-            <a className={styles.linkApploja} href="#">
+            <a className={styles.linkApploja} href="/">
               <span>POKÉDEXMON</span>
             </a>
           </div>
@@ -30,24 +30,24 @@ export const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <a className={styles.menuLink} href="#">
-                  POKÉMONS
-                  </a>
+                <Link href="/">
+                    <span className={styles.menuLink}>POKÉMONS</span>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.menuLink} href="#">
-                  POKÉMONS
-                  </a>
+                <Link href="/">
+                    <span className={styles.menuLink}>POKÉMONS</span>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.menuLink} href="#">
-                  POKÉMONS
-                  </a>
+                <Link href="/">
+                    <span className={styles.menuLink}>POKÉMONS</span>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.menuLink} href="#">
-                    POKÉMONS
-                  </a>
+                <Link href="/">
+                    <span className={styles.menuLink}>POKÉMONS</span>
+                  </Link>
                 </li>
               </ul>
             </nav>

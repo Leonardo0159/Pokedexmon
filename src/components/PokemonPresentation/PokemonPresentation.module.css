@@ -68,10 +68,32 @@
 
 .pokemonTitle {
     margin-bottom: 1rem;
-    font-size: 28px;
+    font-size: 21px;
 }
 
-.pokemonTitle h3 {
+.pokemonTitle h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.pokemonAttributes {
+    margin-bottom: 1rem;
+}
+
+.attributes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.attributes h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.attributes span {
+    font-size: 24px;
     margin: 0;
     padding: 0;
 }

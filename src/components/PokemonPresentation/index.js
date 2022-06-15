@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { get } from '../../service/api';
 import styles from './PokemonPresentation.module.css'
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 export const PokemonPresentation = (props) => {
     const pokemon = props.pokemon;
@@ -101,6 +102,13 @@ export const PokemonPresentation = (props) => {
         }
     }
 
+    const upperCase = (str) => {
+        if (pokemonInfo) {
+            const strUpperCase = str[0].toUpperCase() + str.substr(1);
+            return strUpperCase;
+        }
+    }
+
     return (
         <div className={styles.pokemonPresentation}>
             <div className={styles.container}>
@@ -126,15 +134,16 @@ export const PokemonPresentation = (props) => {
                                         if (pokemonInfo.types.length == 1) {
                                             return (
                                                 <div className={styles.pokemonTypes}>
-                                                    <span className={styleType1()}>{pokemonInfo.types[0].type.name}</span>
+                                                    <span className={styleType1()}>{upperCase(pokemonInfo.types[0].type.name)}</span>
                                                 </div>
                                             )
                                         }
                                         if (pokemonInfo.types.length == 2) {
+
                                             return (
                                                 <div className={styles.pokemonTypes}>
-                                                    <span className={styleType1()}>{pokemonInfo.types[0].type.name}</span>
-                                                    <span className={styleType2()}>{pokemonInfo.types[1].type.name}</span>
+                                                    <span className={styleType1()}>{upperCase(pokemonInfo.types[0].type.name)}</span>
+                                                    <span className={styleType2()}>{upperCase(pokemonInfo.types[1].type.name)}</span>
                                                 </div>
                                             )
                                         }
@@ -150,7 +159,64 @@ export const PokemonPresentation = (props) => {
                     <div className={styles.sideRight}>
                         <div className={styles.box}>
                             <div className={styles.pokemonTitle}>
-                                <h3>{pokemon}</h3>
+                                <h1>{
+                                    upperCase(pokemon)
+                                }</h1>
+                            </div>
+                            <div className={styles.pokemonAttributes}>
+                                {(() => {
+                                    if (pokemonInfo) {
+                                        return (
+                                            <div className={styles.attributes}>
+                                                <h3>Weight: </h3><span>{pokemonInfo.weight}</span>
+                                                <h3>Height: </h3><span>{pokemonInfo.height}</span>
+                                            </div>
+                                        )
+                                    } else {
+                                        return (
+                                            ""
+                                        )
+                                    }
+                                })()}
+                            </div>
+                            <div className={styles.pokemonStats}>
+                                <h3>Stats:</h3>
+                                {(() => {
+                                    if (pokemonInfo) {
+                                        const hp = pokemonInfo.stats[0].base_stat;
+                                        const attack = pokemonInfo.stats[1].base_stat;
+                                        const defense = pokemonInfo.stats[2].base_stat;
+                                        const sAttack = pokemonInfo.stats[3].base_stat;
+                                        const sDefense = pokemonInfo.stats[4].base_stat;
+                                        const speed = pokemonInfo.stats[5].base_stat;
+                                        return (
+                                            <div>
+                                                <div>
+                                                    <span>HP: </span><ProgressBar now={hp} label={`${hp}`} />
+                                                </div>
+                                                <div>
+                                                    <span>Attack: </span><ProgressBar now={attack} label={`${attack}`} />
+                                                </div>
+                                                <div>
+                                                    <span>Defense: </span><ProgressBar now={defense} label={`${defense}`} />
+                                                </div>
+                                                <div>
+                                                    <span>Special Attack: </span><ProgressBar now={sAttack} label={`${sAttack}`} />
+                                                </div>
+                                                <div>
+                                                    <span>Special Defense: </span><ProgressBar now={sDefense} label={`${sDefense}`} />
+                                                </div>
+                                                <div>
+                                                    <span>Speed: </span><ProgressBar now={speed} label={`${speed}`} />
+                                                </div>
+                                            </div>
+                                        )
+                                    } else {
+                                        return (
+                                            ""
+                                        )
+                                    }
+                                })()}
                             </div>
                         </div>
                     </div>

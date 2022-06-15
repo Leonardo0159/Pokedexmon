@@ -68,6 +68,11 @@ export const PokemonList = () => {
         return 0;
     }
 
+    const upperCase = (str) => {
+        const strUpperCase = str[0].toUpperCase() + str.substr(1);
+        return strUpperCase;
+    }
+
     return (
         <div className={styles.pokemonList}>
             <div className={styles.container}>
@@ -106,7 +111,7 @@ export const PokemonList = () => {
                                     <span>#{item.id}</span>
                                 </div>
                                 <div className={styles.name}>
-                                    <span>{item.name}</span>
+                                    <span>{upperCase(item.name)}</span>
                                 </div>
                             </div>
                         </Link>
