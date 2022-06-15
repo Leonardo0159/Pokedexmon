@@ -6,6 +6,7 @@ import { PokemonPresentation } from "../../components/PokemonPresentation";
 import { Loading } from "../../components/Loading";
 import { useEffect, useState } from "react";
 import { get } from '../../service/api';
+import { TypeCalculator } from "../../components/TypeCalculator";
 
 export default function PokemonDetails() {
     const router = useRouter();

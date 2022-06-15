@@ -2,91 +2,50 @@ import { useEffect, useState } from 'react';
 import { get } from '../../service/api';
 import styles from './PokemonPresentation.module.css'
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import { TypeCalculator } from '../TypeCalculator';
 
 export const PokemonPresentation = (props) => {
 
     const pokemonInfo = props.pokemonInfo;
     const pokemonSpecies = props.pokeSpecies;
 
-    const styleType1 = () => {
+    const styleType = (type) => {
         if (pokemonInfo) {
-            if (pokemonInfo.types[0].type.name == "grass") {
+            if (type == "grass") {
                 return styles.grass
-            } else if (pokemonInfo.types[0].type.name == "poison") {
+            } else if (type == "poison") {
                 return styles.poison
-            } else if (pokemonInfo.types[0].type.name == "fire") {
+            } else if (type == "fire") {
                 return styles.fire
-            } else if (pokemonInfo.types[0].type.name == "water") {
+            } else if (type == "water") {
                 return styles.water
-            } else if (pokemonInfo.types[0].type.name == "flying") {
+            } else if (type == "flying") {
                 return styles.flying
-            } else if (pokemonInfo.types[0].type.name == "fighting") {
+            } else if (type == "fighting") {
                 return styles.fighting
-            } else if (pokemonInfo.types[0].type.name == "electric") {
+            } else if (type == "electric") {
                 return styles.electric
-            } else if (pokemonInfo.types[0].type.name == "ground") {
+            } else if (type == "ground") {
                 return styles.ground
-            } else if (pokemonInfo.types[0].type.name == "rock") {
+            } else if (type == "rock") {
                 return styles.rock
-            } else if (pokemonInfo.types[0].type.name == "psychic") {
+            } else if (type == "psychic") {
                 return styles.psychic
-            } else if (pokemonInfo.types[0].type.name == "ice") {
+            } else if (type == "ice") {
                 return styles.ice
-            } else if (pokemonInfo.types[0].type.name == "bug") {
+            } else if (type == "bug") {
                 return styles.bug
-            } else if (pokemonInfo.types[0].type.name == "ghost") {
+            } else if (type == "ghost") {
                 return styles.ghost
-            } else if (pokemonInfo.types[0].type.name == "steel") {
+            } else if (type == "steel") {
                 return styles.steel
-            } else if (pokemonInfo.types[0].type.name == "dragon") {
+            } else if (type == "dragon") {
                 return styles.dragon
-            } else if (pokemonInfo.types[0].type.name == "dark") {
+            } else if (type == "dark") {
                 return styles.dark
-            } else if (pokemonInfo.types[0].type.name == "fairy") {
+            } else if (type == "fairy") {
                 return styles.fairy
-            } else if (pokemonInfo.types[0].type.name == "normal") {
-                return styles.normal
-            }
-        }
-    }
-
-    const styleType2 = () => {
-        if (pokemonInfo) {
-            if (pokemonInfo.types[1].type.name == "grass") {
-                return styles.grass
-            } else if (pokemonInfo.types[1].type.name == "poison") {
-                return styles.poison
-            } else if (pokemonInfo.types[1].type.name == "fire") {
-                return styles.fire
-            } else if (pokemonInfo.types[1].type.name == "water") {
-                return styles.water
-            } else if (pokemonInfo.types[1].type.name == "flying") {
-                return styles.flying
-            } else if (pokemonInfo.types[1].type.name == "fighting") {
-                return styles.fighting
-            } else if (pokemonInfo.types[1].type.name == "electric") {
-                return styles.electric
-            } else if (pokemonInfo.types[1].type.name == "ground") {
-                return styles.ground
-            } else if (pokemonInfo.types[1].type.name == "rock") {
-                return styles.rock
-            } else if (pokemonInfo.types[1].type.name == "psychic") {
-                return styles.psychic
-            } else if (pokemonInfo.types[1].type.name == "ice") {
-                return styles.ice
-            } else if (pokemonInfo.types[1].type.name == "bug") {
-                return styles.bug
-            } else if (pokemonInfo.types[1].type.name == "ghost") {
-                return styles.ghost
-            } else if (pokemonInfo.types[1].type.name == "steel") {
-                return styles.steel
-            } else if (pokemonInfo.types[1].type.name == "dragon") {
-                return styles.dragon
-            } else if (pokemonInfo.types[1].type.name == "dark") {
-                return styles.dark
-            } else if (pokemonInfo.types[1].type.name == "fairy") {
-                return styles.fairy
-            } else if (pokemonInfo.types[1].type.name == "normal") {
+            } else if (type == "normal") {
                 return styles.normal
             }
         }
@@ -124,7 +83,7 @@ export const PokemonPresentation = (props) => {
                                         if (pokemonInfo.types.length == 1) {
                                             return (
                                                 <div className={styles.pokemonTypes}>
-                                                    <span className={styleType1()}>{upperCase(pokemonInfo.types[0].type.name)}</span>
+                                                    <span className={styleType(pokemonInfo.types[0].type.name)}>{upperCase(pokemonInfo.types[0].type.name)}</span>
                                                 </div>
                                             )
                                         }
@@ -132,8 +91,8 @@ export const PokemonPresentation = (props) => {
 
                                             return (
                                                 <div className={styles.pokemonTypes}>
-                                                    <span className={styleType1()}>{upperCase(pokemonInfo.types[0].type.name)}</span>
-                                                    <span className={styleType2()}>{upperCase(pokemonInfo.types[1].type.name)}</span>
+                                                    <span className={styleType(pokemonInfo.types[0].type.name)}>{upperCase(pokemonInfo.types[0].type.name)}</span>
+                                                    <span className={styleType(pokemonInfo.types[1].type.name)}>{upperCase(pokemonInfo.types[1].type.name)}</span>
                                                 </div>
                                             )
                                         }
@@ -244,6 +203,37 @@ export const PokemonPresentation = (props) => {
                             })()}
                         </div>
                     </div>
+                </div>
+                <div className={styles.presentation}>
+
+                    {(() => {
+                        if (pokemonInfo) {
+                            if (pokemonInfo.types.length == 1) {
+                                return (
+                                    <div className={styles.boxPokeTypes}>
+                                        <TypeCalculator type={pokemonInfo.types[0].type.name} />
+                                    </div>
+                                )
+                            }
+                            if (pokemonInfo.types.length == 2) {
+                                return (
+                                    <div className={styles.pokemonTypes}>
+                                        <div className={styles.boxPokeTypes}>
+                                            <TypeCalculator type={pokemonInfo.types[0].type.name} />
+                                        </div>
+
+                                        <div className={styles.boxPokeTypes}>
+                                            <TypeCalculator type={pokemonInfo.types[1].type.name} />
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        } else {
+                            return (
+                                ""
+                            )
+                        }
+                    })()}
                 </div>
             </div>
         </div>
