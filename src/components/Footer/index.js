@@ -10,7 +10,7 @@ export const Footer = () => {
       <div className={styles.footerTop}>
         <div className={styles.sideLeftTop}>
           <div className={styles.logo}>
-            <a className={styles.linkApploja} href="/">
+            <a className={styles.linkApploja} href="#">
               <span>POKÉDEXMON</span>
             </a>
           </div>
