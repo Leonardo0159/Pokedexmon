@@ -57,22 +57,23 @@ export default function PokemonDetails() {
                 <meta property="og:image:width" content="183" />
                 <meta property="og:image:height" content="224" />
             </Head>
-
-            {loading ? (
-                <Loading />
-            ) : (
-                <div>
-                    <Header />
-                    {notFound ? (
-                        <PokemonNotFound />
-                    ) : (
-                        <div>
-                            <PokemonPresentation pokemonInfo={pokemonInfo} pokeSpecies={pokemonSpecies} />
-                        </div>
-                    )}
-                    <Footer />
-                </div>
-            )}
+            <body>
+                {loading ? (
+                    <Loading />
+                ) : (
+                    <div>
+                        <Header />
+                        {notFound ? (
+                            <PokemonNotFound />
+                        ) : (
+                            <div>
+                                <PokemonPresentation pokemonInfo={pokemonInfo} pokeSpecies={pokemonSpecies} />
+                            </div>
+                        )}
+                        <Footer />
+                    </div>
+                )}
+            </body>
         </div>
     )
 }

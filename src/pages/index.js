@@ -34,16 +34,17 @@ export default function Home() {
         <meta property="og:image:height" content="224" />
       </Head>
 
-      <Header />
-      <Ads />
-      <BannerHome />
-      <Ads />
-      <BannerLegendary />
-      <Ads />
-      <BannerMythical />
-      <Ads />
-      <Footer />
-
+      <body>
+        <Header />
+        <Ads />
+        <BannerHome />
+        <Ads />
+        <BannerLegendary />
+        <Ads />
+        <BannerMythical />
+        <Ads />
+        <Footer />
+      </body>
     </div>
   )
 }
