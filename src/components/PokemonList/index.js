@@ -3,28 +3,34 @@ import { get } from "../../service/api";
 import { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
 import Link from "next/link";
+import Router from 'next/router'
 
 let nextUrl = '';
 let previousUrl = '';
 let pagina = 0;
-export const PokemonList = () => {
+export const PokemonList = (props) => {
+    const page = props.page;
     const [pokemonListInfo, setPokemonListInfo] = useState([]);
-    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=40&offset=0');
 
     const loadAll = async () => {
-        let list = await get(url);
+        const url = "";
+        let list;
 
-        if (list.next != null) {
-            nextUrl = list.next;
+        if (page == "1") {
+            console.log("page 1");
+            url = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0"
+            list = await get(url);
         } else {
-            nextUrl = "";
+            console.log("page n1");
+            const limit = 40
+            const offset = (parseInt(page)-1) * 40;
+            url = "https://pokeapi.co/api/v2/pokemon?offset="+offset+"&limit=40"
+            console.log(url);
+            list = await get(url);
         }
+         
 
-        if (list.previous != null) {
-            previousUrl = list.previous;
-        } else {
-            previousUrl = ""
-        }
+        console.log("Resposta: ",list);
 
         for (let i = 0; i < list.results.length; i++) {
 
@@ -40,23 +46,45 @@ export const PokemonList = () => {
         }
     }
 
+    const urlPage = () => {
+        const url = "";
+
+        if (page == "1") {
+            console.log("page 1");
+            url = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0"
+        } else {
+            console.log("page n1");
+            const limit = 40
+            const offset = parseInt(page) * 40;
+            url = "https://pokeapi.co/api/v2/pokemon?pokemon?offset=80&limit=40"
+        }
+        console.log("api da page: ", url);
+        return url
+
+    }
+
     useEffect(() => {
-        loadAll();
-    }, [url]);
+        if (page) {
+            setPokemonListInfo([])
+            loadAll();
+        }
+    }, [page]);
 
     const nextPage = () => {
-        if (nextUrl != "") {
-            pagina = pagina + 1;
-            setPokemonListInfo([])
-            setUrl(nextUrl);
-        }
+        if (page != "28") {
+            const nextPg = 0;
+            nextPg = 1 + parseInt(page);
+            const rota = '/page/' + nextPg + "";
+            Router.push(rota);
+        }  
     }
 
     const previousPage = () => {
-        if (previousUrl != "") {
-            pagina = pagina - 1;
-            setPokemonListInfo([])
-            setUrl(previousUrl);
+        if (page != "1") {
+            const previousPg = 0;
+            previousPg = parseInt(page) - 1;
+            const rota = '/page/' + previousPg + "";
+            Router.push(rota);
         }
     }
 
@@ -78,7 +106,7 @@ export const PokemonList = () => {
             <div className={styles.container}>
                 <div className={styles.controllerPages}>
                     {(() => {
-                        if (previousUrl == "") {
+                        if (page == "1") {
                             return (
                                 <a onClick={previousPage}><BsFillArrowLeftCircleFill size={35} color="#CCCCCC" /></a>
                             )
@@ -89,7 +117,7 @@ export const PokemonList = () => {
                         }
                     })()}
                     {(() => {
-                        if (nextUrl == "") {
+                        if (page == "28") {
                             return (
                                 <a onClick={nextPage}><BsFillArrowRightCircleFill size={35} color="#CCCCCC" /></a>
                             )
@@ -119,7 +147,7 @@ export const PokemonList = () => {
                 </div>
                 <div className={styles.controllerPages}>
                     {(() => {
-                        if (previousUrl == "") {
+                        if (page == "1") {
                             return (
                                 <a onClick={previousPage}><BsFillArrowLeftCircleFill size={35} color="#CCCCCC" /></a>
                             )
@@ -130,7 +158,7 @@ export const PokemonList = () => {
                         }
                     })()}
                     {(() => {
-                        if (nextUrl == "") {
+                        if (page == "28") {
                             return (
                                 <a onClick={nextPage}><BsFillArrowRightCircleFill size={35} color="#CCCCCC" /></a>
                             )
