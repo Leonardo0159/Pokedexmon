@@ -1,8 +1,8 @@
 import Head from 'next/head'
+import Script from "next/script";
 import { Ads } from '../components/Ads'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
-import { Loading } from '../components/Loading'
 import { PokemonList } from '../components/PokemonList'
 import ReactGA from 'react-ga4';
 import { useEffect } from 'react'
@@ -20,7 +20,13 @@ export default function Home() {
         <title>Pokédexmon</title>
         <meta name="description" content="See everything about your favorite pokémons in the best pokédex and be the best pokémon trainer in the world!" />
         <link rel="icon" href="/favicon.ico" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" data-ad-client="ca-pub-9645579603385719"></script>
+        <Script
+          id="Adsense-id" async
+          onError={(e) => { console.error("Script failed to load", e); }}
+          strategy="afterInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9645579603385719"
+          crossorigin="anonymous"
+        />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Pokédexmon" />
