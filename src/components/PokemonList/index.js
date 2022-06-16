@@ -47,7 +47,7 @@ export const PokemonList = (props) => {
 
     const nextPage = () => {
         if (page != "28") {
-            const nextPg = 0;
+            let nextPg = 0;
             nextPg = 1 + parseInt(page);
             const rota = '/page/' + nextPg + "";
             return rota;
@@ -56,7 +56,7 @@ export const PokemonList = (props) => {
 
     const previousPage = () => {
         if (page != "1") {
-            const previousPg = 0;
+            let previousPg = 0;
             previousPg = parseInt(page) - 1;
             const rota = '/page/' + previousPg + "";
             return rota;
