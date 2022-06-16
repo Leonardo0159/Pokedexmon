@@ -32,7 +32,10 @@ export const get = async (url) => {
 
     const data = await fetch(request)
     .then(res => response = res.json())
-    .catch(err => console.error(err))
+    .catch(err => {
+        console.error(err) 
+        response = 404
+    })
 
     return response;
 }

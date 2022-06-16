@@ -6,6 +6,7 @@ import { PokemonPresentation } from "../../components/PokemonPresentation";
 import { Loading } from "../../components/Loading";
 import { useEffect, useState } from "react";
 import { get } from '../../service/api';
+import { PokemonNotFound } from "../../components/PokemonNotFound";
 
 
 export default function PokemonDetails() {
@@ -13,14 +14,22 @@ export default function PokemonDetails() {
     const [pokemonInfo, setPokemonInfo] = useState();
     const [loading, setLoading] = useState(true);
     const [pokemonSpecies, setPokemonSpecies] = useState();
+    const [notFound, setNotFound] = useState(false);
 
     const loadAll = async () => {
         if (router.query.name) {
-            let poke = await get("https://pokeapi.co/api/v2/pokemon/" + router.query.name);
-            let pokeSpecies = await get("https://pokeapi.co/api/v2/pokemon-species/" + router.query.name);
-            setPokemonInfo(poke);
-            setPokemonSpecies(pokeSpecies);
-            setLoading(false);
+            let poke = await get("https://pokeapi.co/api/v2/pokemon/" + router.query.name)
+            let pokeSpecies = await get("https://pokeapi.co/api/v2/pokemon-species/" + router.query.name)
+
+            if (poke != 404) {
+                setNotFound(false);
+                setPokemonInfo(poke);
+                setPokemonSpecies(pokeSpecies);
+                setLoading(false);
+            } else {
+                setNotFound(true);
+                setLoading(false);
+            }
         }
     }
 
@@ -50,7 +59,13 @@ export default function PokemonDetails() {
             ) : (
                 <div>
                     <Header />
-                    <PokemonPresentation pokemonInfo={pokemonInfo} pokeSpecies={pokemonSpecies} />
+                    {notFound ? (
+                        <PokemonNotFound />
+                    ) : (
+                        <div>
+                            <PokemonPresentation pokemonInfo={pokemonInfo} pokeSpecies={pokemonSpecies} />
+                        </div>
+                    )}
                     <Footer />
                 </div>
             )}

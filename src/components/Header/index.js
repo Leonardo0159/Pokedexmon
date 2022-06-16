@@ -1,8 +1,19 @@
 import styles from "./Header.module.css";
 import { BsSearch } from "react-icons/bs";
 import Link from "next/link";
+import Router from 'next/router'
+import { useState } from "react";
 
 export const Header = () => {
+  
+  const searchPokemon = () => {
+    let search = document.getElementById('search').value
+    
+    if (search != "") {
+      Router.push('/pokemon/'+search.toLowerCase())
+    } 
+  }
+
   return (
     <div className={styles.header}>
       <div className={styles.container}>
@@ -13,8 +24,8 @@ export const Header = () => {
             </div>
           </Link>
           <div className={styles.search}>
-            <input placeholder="Pesquise Aqui" />
-            <button>
+            <input id="search" placeholder="Search pokemon" />
+            <button onClick={searchPokemon}>
               <BsSearch size={20} />
             </button>
           </div>
