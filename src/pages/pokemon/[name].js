@@ -6,7 +6,7 @@ import { PokemonPresentation } from "../../components/PokemonPresentation";
 import { Loading } from "../../components/Loading";
 import { useEffect, useState } from "react";
 import { get } from '../../service/api';
-import Script from "next/script";
+
 
 export default function PokemonDetails() {
     const router = useRouter();
@@ -34,13 +34,6 @@ export default function PokemonDetails() {
                 <title>Pokédexmon | {router.query.name}</title>
                 <meta name="description" content="See everything about your favorite pokémons in the best pokédex and be the best pokémon trainer in the world!" />
                 <link rel="icon" href="/favicon.ico" />
-                <Script
-                    id="Adsense-id" async
-                    onError={(e) => { console.error("Script failed to load", e); }}
-                    strategy="afterInteractive"
-                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9645579603385719"
-                    crossorigin="anonymous"
-                />
                 <meta property="og:locale" content="en_US" />
                 <meta property="og:type" content="article" />
                 <meta property="og:title" content="Pokédexmon" />
