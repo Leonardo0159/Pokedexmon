@@ -1,0 +1,82 @@
+.bannerHome {
+    background-image: url("../../assets/images/pokemon.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 30rem;
+}
+
+.container {
+    background-color: rgba(55, 93, 170, 0.7);
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    margin: 0 25vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.content h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.content p {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.buttonLearnMore {
+    height: 3rem;
+    width: 20rem;
+    background-color: #eeb30c;
+    border: 1px solid #FFF;
+    border-radius: 15px;
+    color: #FFF;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.buttonLearnMore:hover {
+    background-color: #d64262;
+    border: 1px solid white;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .banner {
+        background-position: right;
+    }
+
+    .content {
+        margin: 0 5vw;
+    }
+
+    .content h1 {
+        font-size: 30px;
+    }
+
+    .content p {
+        font-size: 18px;
+    }
+
+    .buttonLearnMore {
+        width: 16rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}

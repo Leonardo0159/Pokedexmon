@@ -6,6 +6,9 @@ import { Header } from '../components/Header'
 import { PokemonList } from '../components/PokemonList'
 import ReactGA from 'react-ga4';
 import { useEffect } from 'react'
+import { BannerHome } from '../components/BannerHome';
+import { BannerLegendary } from '../components/BannerLegendary';
+import { BannerMythical } from '../components/BannerMythical';
 
 ReactGA.initialize('G-XS8VZGMJ08');
 export default function Home() {
@@ -33,7 +36,11 @@ export default function Home() {
 
       <Header />
       <Ads />
-      <PokemonList />
+      <BannerHome />
+      <Ads />
+      <BannerLegendary />
+      <Ads />
+      <BannerMythical />
       <Ads />
       <Footer />
 

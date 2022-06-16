@@ -9,7 +9,7 @@ export const Header = () => {
         <div className={styles.headerMain}>
           <Link href="/">
             <div className={styles.logo}>
-              <img src="/Pokedexmon.png" />
+              <img alt="pokedexmon website logo" src="/Pokedexmon.png" />
             </div>
           </Link>
           <div className={styles.search}>
