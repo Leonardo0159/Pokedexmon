@@ -54,7 +54,7 @@
     justify-content: space-between; 
 }
 
-.controllerPages a{
+.btn {
     cursor: pointer;
 }
 
