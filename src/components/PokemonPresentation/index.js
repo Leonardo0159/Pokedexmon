@@ -121,6 +121,36 @@ export const PokemonPresentation = (props) => {
                                 })()}
                                 </h1>
                             </div>
+                            <div className={styles.pokemonTitle}>
+                                {(() => {
+                                    if (pokemonSpecies) {
+                                        if (pokemonSpecies.is_legendary) {
+                                            return (
+                                                <div className={styles.rarity}>
+                                                    <h3>Rarity: </h3><span>Legendary</span>
+                                                </div>
+                                            )
+                                        } else if (pokemonSpecies.is_mythical) {
+                                            return (
+                                                <div className={styles.rarity}>
+                                                    <h3>Rarity: </h3><span>Mythical</span>
+                                                </div>
+                                            )
+                                        } else {
+                                            return (
+                                                <div className={styles.rarity}>
+                                                    <h3>Rarity: </h3><span>Common</span>
+                                                </div>
+                                            )
+                                        }
+
+                                    } else {
+                                        return (
+                                            ""
+                                        )
+                                    }
+                                })()}
+                            </div>
                             <div className={styles.pokemonAttributes}>
                                 {(() => {
                                     if (pokemonInfo) {

@@ -126,6 +126,24 @@
     padding: 1rem;
 }
 
+.rarity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.rarity h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.rarity span {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
 @media screen and (max-width: 768px) {
     .container {
         margin: 0 5vw;
