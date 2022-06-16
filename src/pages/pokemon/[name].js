@@ -21,10 +21,14 @@ export default function PokemonDetails() {
             let poke = await get("https://pokeapi.co/api/v2/pokemon/" + router.query.name)
             let pokeSpecies = await get("https://pokeapi.co/api/v2/pokemon-species/" + router.query.name)
 
-            if (poke != 404) {
+            if (poke != 404 && pokeSpecies != 404) {
                 setNotFound(false);
                 setPokemonInfo(poke);
                 setPokemonSpecies(pokeSpecies);
+                setLoading(false);
+            } else if (poke != 404) {
+                setNotFound(false);
+                setPokemonInfo(poke);
                 setLoading(false);
             } else {
                 setNotFound(true);
