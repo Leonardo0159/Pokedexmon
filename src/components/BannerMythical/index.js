@@ -6,7 +6,7 @@ export const BannerMythical = () => {
         <div className={styles.bannerMythical}>
             <div className={styles.container}>
                 <div className={styles.content}>
-                    <h1>Mythical Pokemons</h1>
+                    <h2>Mythical Pokemons</h2>
                     <p>Mythical Pokemon are so rare and almost never seen by humans that many question whether they even exist. In games they cannot usually be found, they can only be obtained through distribution events.</p>
                     <Link href='/'><span className={styles.buttonLearnMore}>See Mythical Pokemons</span></Link>
                 </div>
