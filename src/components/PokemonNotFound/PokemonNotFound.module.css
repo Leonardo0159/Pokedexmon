@@ -24,3 +24,18 @@
     font-family: 'Courier New', Courier, monospace;
     color: #ffc200;
 }
+
+.gifLoad img{
+      width: 100%;
+      height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .gifLoad {
+        width: 90%
+    }
+
+    .textLoad span{
+        font-size: 36px;
+    }
+}
