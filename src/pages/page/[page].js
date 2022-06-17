@@ -26,11 +26,9 @@ export default function Page() {
                 <meta property="og:image:height" content="224" />
             </Head>
 
-            <body>
-                <Header />
-                <PokemonList page={router.query.page} />
-                <Footer />
-            </body>
+            <Header />
+            <PokemonList page={router.query.page} />
+            <Footer />
         </div>
     )
 }
