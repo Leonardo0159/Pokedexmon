@@ -45,12 +45,12 @@ export default function PokemonDetails() {
         <div>
             <Head>
                 <title>Pokédexmon | {router.query.name}</title>
-                <meta name="description" content="See everything about your favorite pokémons in the best pokédex and be the best pokémon trainer in the world!" />
+                <meta name="description" content="See everything about your favorite pokemons in the best pokedex and be the best pokemon trainer in the world! Gotta catch em all!" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta property="og:locale" content="en_US" />
                 <meta property="og:type" content="article" />
                 <meta property="og:title" content="Pokédexmon" />
-                <meta property="og:description" content="See everything about your favorite pokémons in the best pokédex and be the best pokémon trainer in the world!" />
+                <meta property="og:description" content="See everything about your favorite pokemons in the best pokedex and be the best pokemon trainer in the world! Gotta catch em all!" />
                 <meta property="og:url" content="https://www.pokedexmon.com/" />
                 <meta property="og:site_name" content="Pokédexmon" />
                 <meta property="og:image" content="/pokeball.png" />

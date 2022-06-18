@@ -1,18 +1,13 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
+import Head from 'next/head'
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
-import { PokemonList } from "../../components/PokemonList";
+import { LegendaryList } from '../../components/LegendaryList';
 
-export default function Page() {
-    const router = useRouter();
-
-    console.log(router.query.page)
-
+export default function Mythical() {
     return (
         <div>
             <Head>
-                <title>Pokédexmon | Page {router.query.page}</title>
+                <title>Pokédexmon | Mythical Pokemons</title>
                 <meta name="description" content="See everything about your favorite pokemons in the best pokedex and be the best pokemon trainer in the world! Gotta catch em all!" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta property="og:locale" content="en_US" />
@@ -27,7 +22,7 @@ export default function Page() {
             </Head>
 
             <Header />
-            <PokemonList page={router.query.page} />
+            <LegendaryList rarity="mythical"/>
             <Footer />
         </div>
     )

@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Loading } from "../Loading";
 
-export const LegendaryList = () => {
+export const LegendaryList = (props) => {
+    const rarity = props.rarity;
     const [pokemonListInfo, setPokemonListInfo] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -18,19 +19,37 @@ export const LegendaryList = () => {
         for (let i = 0; i < list.results.length; i++) {
 
             get(list.results[i].url).then((data) => {
-                if (data.is_legendary) {
-                    get("https://pokeapi.co/api/v2/pokemon/" + data.name).then((data) => {
-                        if (data.sprites) {
-                            let dataPokemon = {
-                                name: data.name,
-                                id: data.id,
-                                img: data.sprites.other['official-artwork'].front_default
-                            }
+                if (rarity == "legendary") {
+                    if (data.is_legendary) {
+                        get("https://pokeapi.co/api/v2/pokemon/" + data.name).then((data) => {
+                            if (data.sprites) {
+                                let dataPokemon = {
+                                    name: data.name,
+                                    id: data.id,
+                                    img: data.sprites.other['official-artwork'].front_default
+                                }
 
-                            setPokemonListInfo(old => [...old, dataPokemon]);
-                        }
-                    });
+                                setPokemonListInfo(old => [...old, dataPokemon]);
+                            }
+                        });
+                    }
                 }
+                if (rarity == "mythical") {
+                    if (data.is_mythical) {
+                        get("https://pokeapi.co/api/v2/pokemon/" + data.name).then((data) => {
+                            if (data.sprites) {
+                                let dataPokemon = {
+                                    name: data.name,
+                                    id: data.id,
+                                    img: data.sprites.other['official-artwork'].front_default
+                                }
+
+                                setPokemonListInfo(old => [...old, dataPokemon]);
+                            }
+                        });
+                    }
+                }
+
                 setLoading(false);
             });
         }
