@@ -19,7 +19,7 @@ export default function Page() {
                 <meta property="og:type" content="article" />
                 <meta property="og:title" content="Pokédexmon" />
                 <meta property="og:description" content="See everything about your favorite pokémons in the best pokédex and be the best pokémon trainer in the world!" />
-                <meta property="og:url" content="https://pokedexmon.vercel.app/" />
+                <meta property="og:url" content="https://www.pokedexmon.com/" />
                 <meta property="og:site_name" content="Pokédexmon" />
                 <meta property="og:image" content="/pokeball.png" />
                 <meta property="og:image:width" content="183" />

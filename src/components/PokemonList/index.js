@@ -46,10 +46,10 @@ export const PokemonList = (props) => {
     }, [page]);
 
     const nextPage = () => {
-        if (page != "28") {
+        if (page != "29") {
             let nextPg = 0;
             nextPg = 1 + parseInt(page);
-            const rota = '/page/' + nextPg + "";
+            const rota = '/pokedex/' + nextPg + "";
             return rota;
         }
     }
@@ -58,7 +58,7 @@ export const PokemonList = (props) => {
         if (page != "1") {
             let previousPg = 0;
             previousPg = parseInt(page) - 1;
-            const rota = '/page/' + previousPg + "";
+            const rota = '/pokedex/' + previousPg + "";
             return rota;
         }
     }
@@ -94,7 +94,7 @@ export const PokemonList = (props) => {
                         }
                     })()}
                     {(() => {
-                        if (page == "28") {
+                        if (page == "29") {
                             return (
                                 <span><BsFillArrowRightCircleFill size={35} color="#CCCCCC" /></span>
                             )
@@ -139,7 +139,7 @@ export const PokemonList = (props) => {
                         }
                     })()}
                     {(() => {
-                        if (page == "28") {
+                        if (page == "29") {
                             return (
                                 <span><BsFillArrowRightCircleFill size={35} color="#CCCCCC" /></span>
                             )
