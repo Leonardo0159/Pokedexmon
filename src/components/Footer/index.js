@@ -15,44 +15,6 @@ export const Footer = () => {
             </a>
           </div>
         </div>
-        <div className={styles.sideRightTop}>
-          <div className={styles.links}>
-            <nav>
-              <ul>
-                <li>
-                  <Link href="/">
-                    <span className={styles.menuLink}>POKÉMONS</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <span className={styles.menuLink}>POKÉMONS</span>
-                  </Link>
-                </li>
-                <li>
-                <Link href="/">
-                    <span className={styles.menuLink}>POKÉMONS</span>
-                  </Link>
-                </li>
-                <li>
-                <Link href="/">
-                    <span className={styles.menuLink}>POKÉMONS</span>
-                  </Link>
-                </li>
-                <li>
-                <Link href="/">
-                    <span className={styles.menuLink}>POKÉMONS</span>
-                  </Link>
-                </li>
-                <li>
-                <Link href="/">
-                    <span className={styles.menuLink}>POKÉMONS</span>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
       </div>
       <div className={styles.footerCenter}>
         <div className={styles.sideLeftCenter}>
