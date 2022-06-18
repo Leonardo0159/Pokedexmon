@@ -7,6 +7,7 @@ import { Loading } from "../../components/Loading";
 import { useEffect, useState } from "react";
 import { get } from '../../service/api';
 import { PokemonNotFound } from "../../components/PokemonNotFound";
+import { Ads } from "../../components/Ads";
 
 
 export default function PokemonDetails() {
@@ -67,7 +68,9 @@ export default function PokemonDetails() {
                         <PokemonNotFound />
                     ) : (
                         <div>
+                            <Ads />
                             <PokemonPresentation pokemonInfo={pokemonInfo} pokeSpecies={pokemonSpecies} />
+                            <Ads />
                         </div>
                     )}
                     <Footer />

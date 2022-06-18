@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { Ads } from "../../components/Ads";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { PokemonList } from "../../components/PokemonList";
@@ -27,7 +28,9 @@ export default function Page() {
             </Head>
 
             <Header />
+            <Ads />
             <PokemonList page={router.query.page} />
+            <Ads />
             <Footer />
         </div>
     )

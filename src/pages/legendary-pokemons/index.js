@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { Ads } from '../../components/Ads';
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { LegendaryList } from '../../components/LegendaryList';
@@ -22,7 +23,9 @@ export default function Legendary() {
             </Head>
 
             <Header />
+            <Ads />
             <LegendaryList rarity="legendary" />
+            <Ads />
             <Footer />
         </div>
     )
