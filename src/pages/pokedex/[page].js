@@ -13,7 +13,7 @@ export default function Page() {
     return (
         <div>
             <Head>
-                <title>Pokédexmon | Page {router.query.page}</title>
+                <title>Pokédexmon | Pokedex {router.query.page}</title>
                 <meta name="description" content="See everything about your favorite pokemons in the best pokedex and be the best pokemon trainer in the world! Gotta catch em all!" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta property="og:locale" content="en_US" />
