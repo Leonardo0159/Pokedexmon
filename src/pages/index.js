@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 import { BannerHome } from '../components/BannerHome';
 import { BannerLegendary } from '../components/BannerLegendary';
 import { BannerMythical } from '../components/BannerMythical';
+import { TypesController } from '../components/TypesController';
 
 ReactGA.initialize('G-XS8VZGMJ08');
 export default function Home() {
@@ -41,6 +42,8 @@ export default function Home() {
       <BannerLegendary />
       <Ads />
       <BannerMythical />
+      <Ads />
+      <TypesController type="home"/>
       <Ads />
       <Footer />
 

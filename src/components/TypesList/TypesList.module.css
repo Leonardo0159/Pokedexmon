@@ -1,0 +1,83 @@
+.pokemonList {
+    background-color: #f4f4f4;
+    width: 100vw;
+}
+
+.container {
+    margin: 0 15vw;
+    padding: 2rem 0;
+}
+
+.boxes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.box {
+    background-color: white;
+    width: 16.5vw;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.image {
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    width: auto;
+    height: 200px;
+}
+
+.image img{
+    width: 100%;
+    height: 100%;
+}
+
+.name {
+    margin-bottom: 1rem;
+}
+
+.name span{
+    font-weight: bold;
+}
+
+.controllerPages {
+    margin: 1rem 0;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+}
+
+.btn {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin: 0 2vw;
+        padding: 2rem 0;
+    }
+
+    .box {
+        background-color: white;
+        width: 29vw;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+    }
+
+    .image {
+        margin-bottom: 1rem;
+        padding-top: 1rem;
+        width: 110px;
+        height: 110px;
+    }
+}
