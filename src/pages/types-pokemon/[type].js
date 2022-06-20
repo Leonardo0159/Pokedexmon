@@ -27,8 +27,10 @@ export default function TypesPokemon() {
             </Head>
 
             <Header />
+            <Ads />
             <TypesController type={router.query.type}/>
             <TypesList type={router.query.type}/>
+            <Ads />
             <Footer />
         </div>
     )
