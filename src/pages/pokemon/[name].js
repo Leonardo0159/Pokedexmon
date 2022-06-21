@@ -8,44 +8,40 @@ import { useEffect, useState } from "react";
 import { get } from '../../service/api';
 import { PokemonNotFound } from "../../components/PokemonNotFound";
 import { Ads } from "../../components/Ads";
+import 'isomorphic-fetch';
 
-
-export default function PokemonDetails() {
-    const router = useRouter();
+const PokemonDetails = ({ poke, pokeSpecies }) => {
     const [pokemonInfo, setPokemonInfo] = useState();
     const [loading, setLoading] = useState(true);
     const [pokemonSpecies, setPokemonSpecies] = useState();
     const [notFound, setNotFound] = useState(false);
 
     const loadAll = async () => {
-        if (router.query.name) {
-            let poke = await get("https://pokeapi.co/api/v2/pokemon/" + router.query.name)
-            let pokeSpecies = await get("https://pokeapi.co/api/v2/pokemon-species/" + router.query.name)
 
-            if (poke != 404 && pokeSpecies != 404) {
-                setNotFound(false);
-                setPokemonInfo(poke);
-                setPokemonSpecies(pokeSpecies);
-                setLoading(false);
-            } else if (poke != 404) {
-                setNotFound(false);
-                setPokemonInfo(poke);
-                setLoading(false);
-            } else {
-                setNotFound(true);
-                setLoading(false);
-            }
+        if (poke != 404 && pokeSpecies != 404) {
+            setNotFound(false);
+            setPokemonInfo(poke);
+            setPokemonSpecies(pokeSpecies);
+            setLoading(false);
+        } else if (poke != 404) {
+            setNotFound(false);
+            setPokemonInfo(poke);
+            setLoading(false);
+        } else {
+            setNotFound(true);
+            setLoading(false);
         }
+
     }
 
     useEffect(() => {
         loadAll();
-    }, [router.query.name]);
+    }, []);
 
     return (
         <div>
             <Head>
-                <title>Pokédexmon | {router.query.name}</title>
+                <title>Pokédexmon | {poke.name}</title>
                 <meta name="description" content="See everything about your favorite pokemons in the best pokedex and be the best pokemon trainer in the world! Gotta catch em all!" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta property="og:locale" content="en_US" />
@@ -80,3 +76,13 @@ export default function PokemonDetails() {
         </div>
     )
 }
+
+export async function getServerSideProps(context) {
+
+    let poke = await get("https://pokeapi.co/api/v2/pokemon/" + context.query.name)
+    let pokeSpecies = await get("https://pokeapi.co/api/v2/pokemon-species/" + context.query.name)
+
+    return { props: { poke, pokeSpecies } }
+}
+
+export default PokemonDetails;
