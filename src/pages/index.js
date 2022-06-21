@@ -1,9 +1,7 @@
 import Head from 'next/head'
-import Script from "next/script";
 import { Ads } from '../components/Ads'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
-import { PokemonList } from '../components/PokemonList'
 import ReactGA from 'react-ga4';
 import { useEffect } from 'react'
 import { BannerHome } from '../components/BannerHome';

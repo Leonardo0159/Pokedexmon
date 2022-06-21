@@ -4,7 +4,7 @@ export const Loading = () => {
     return (
         <div className={styles.loading}>
             <div className={styles.gifLoad}>
-                <img src="/load.gif"/>
+                <img alt="Charmander gif for loading screen" src="/load.gif"/>
             </div>
             <div className={styles.textLoad}>
                 <span>Loading...</span>

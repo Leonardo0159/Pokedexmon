@@ -1,14 +1,15 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { Ads } from "../../components/Ads";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { Loading } from "../../components/Loading";
 import { PokemonList } from "../../components/PokemonList";
 
 export default function Page() {
     const router = useRouter();
-
-    console.log(router.query.page)
+    const [loading, setLoading] = useState(false);
 
     return (
         <div>
@@ -27,11 +28,17 @@ export default function Page() {
                 <meta property="og:image:height" content="224" />
             </Head>
 
-            <Header />
-            <Ads />
-            <PokemonList page={router.query.page} />
-            <Ads />
-            <Footer />
+            {loading ? (
+                <Loading />
+            ) : (
+                <>
+                    <Header />
+                    <Ads />
+                    <PokemonList page={router.query.page} setLoading={setLoading}/>
+                    <Ads />
+                    <Footer />
+                </>
+            )}
         </div>
     )
 }
