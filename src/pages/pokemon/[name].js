@@ -33,25 +33,25 @@ const PokemonDetails = ({ poke, pokeSpecies }) => {
             setNotFound(true);
             setLoading(false);
         }
-
-        if (pokemonSpecies) {
-            const descriptionEn = "";
-            for (let i = 0; i < pokemonSpecies.flavor_text_entries.length; i++) {
-                if (pokemonSpecies.flavor_text_entries[i].language.name == "en") {
-                    descriptionEn = pokemonSpecies.flavor_text_entries[i].flavor_text;
-                    break;
-                }
-            }
-            
-            descriptionPokemon = descriptionEn;
-            
-        }
-
     }
 
     useEffect(() => {
         loadAll();
     }, []);
+
+    useEffect(() => {
+        if (pokeSpecies) {
+            const descriptionEn = "";
+            for (let i = 0; i < pokeSpecies.flavor_text_entries.length; i++) {
+                if (pokeSpecies.flavor_text_entries[i].language.name == "en") {
+                    descriptionEn = pokeSpecies.flavor_text_entries[i].flavor_text;
+                    break;
+                }
+            }
+            
+            descriptionPokemon = descriptionEn;
+        }
+    }, [descriptionPokemon]);
 
     return (
         <div>
