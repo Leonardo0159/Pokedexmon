@@ -16,7 +16,6 @@ const PokemonDetails = ({ poke, pokeSpecies }) => {
     const [pokemonSpecies, setPokemonSpecies] = useState();
     const [notFound, setNotFound] = useState(false);
     let namePokemon = poke.name;
-    let descriptionPokemon;
 
     const loadAll = async () => {
 
@@ -39,30 +38,16 @@ const PokemonDetails = ({ poke, pokeSpecies }) => {
         loadAll();
     }, []);
 
-    useEffect(() => {
-        if (pokeSpecies) {
-            const descriptionEn = "";
-            for (let i = 0; i < pokeSpecies.flavor_text_entries.length; i++) {
-                if (pokeSpecies.flavor_text_entries[i].language.name == "en") {
-                    descriptionEn = pokeSpecies.flavor_text_entries[i].flavor_text;
-                    break;
-                }
-            }
-            
-            descriptionPokemon = descriptionEn;
-        }
-    }, [descriptionPokemon]);
-
     return (
         <div>
             <Head>
                 <title>Pokédexmon | {namePokemon}</title>
-                <meta name="description" content={namePokemon+": "+descriptionPokemon+" See everything about your favorite pokemons in the best pokedex and be the best pokemon trainer in the world! Gotta catch em all!"} />
+                <meta name="description" content={"Know everything about "+namePokemon+" and its stats, strengths and weakness with pokedexmon! Gotta catch em all!"} />
                 <link rel="icon" href="/favicon.ico" />
                 <meta property="og:locale" content="en_US" />
                 <meta property="og:type" content="article" />
                 <meta property="og:title" content={"Pokédexmon | "+namePokemon} />
-                <meta property="og:description" content={namePokemon+": "+descriptionPokemon+" See everything about your favorite pokemons in the best pokedex and be the best pokemon trainer in the world! Gotta catch em all!"} />
+                <meta property="og:description" content={"Know everything about "+namePokemon+" and its stats, strengths and weakness with pokedexmon! Gotta catch em all!"} />
                 <meta property="og:url" content="https://www.pokedexmon.com/" />
                 <meta property="og:site_name" content="Pokédexmon" />
                 <meta property="og:image" content="/pokeball.png" />
