@@ -3,6 +3,7 @@ import { get } from "../../service/api";
 import { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
 import Link from "next/link";
+import Image from "next/image";
 
 export const PokemonList = (props) => {
     const page = props.page;
@@ -27,13 +28,15 @@ export const PokemonList = (props) => {
         for (let i = 0; i < list.results.length; i++) {
 
             get(list.results[i].url).then((data) => {
-                let dataPokemon = {
-                    name: data.name,
-                    id: data.id,
-                    img: data.sprites.other['official-artwork'].front_default
+                if (data.sprites.other['official-artwork'].front_default != null) {
+                    let dataPokemon = {
+                        name: data.name,
+                        id: data.id,
+                        img: data.sprites.other['official-artwork'].front_default
+                    }
+    
+                    setPokemonListInfo(old => [...old, dataPokemon]);
                 }
-
-                setPokemonListInfo(old => [...old, dataPokemon]);
             });
         }
     }
@@ -112,7 +115,10 @@ export const PokemonList = (props) => {
                         <Link key={key} href={'/pokemon/' + item.name}>
                             <div className={styles.box}>
                                 <div className={styles.image}>
-                                    <img src={item.img} />
+                                    <Image
+                                        src={item.img}
+                                        width={200}
+                                        height={200} />
                                 </div>
                                 <div className={styles.number}>
                                     <span>#{item.id}</span>

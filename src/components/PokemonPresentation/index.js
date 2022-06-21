@@ -3,6 +3,7 @@ import { get } from '../../service/api';
 import styles from './PokemonPresentation.module.css'
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { TypeCalculator } from '../TypeCalculator';
+import Image from 'next/image';
 
 export const PokemonPresentation = (props) => {
 
@@ -68,7 +69,7 @@ export const PokemonPresentation = (props) => {
                                 {(() => {
                                     if (pokemonInfo) {
                                         return (
-                                            <img src={pokemonInfo.sprites.other['official-artwork'].front_default} />
+                                            <Image width={3000} height={2500} src={pokemonInfo.sprites.other['official-artwork'].front_default} />
                                         )
                                     } else {
                                         return (

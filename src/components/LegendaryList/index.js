@@ -3,6 +3,7 @@ import { get } from "../../service/api";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Loading } from "../Loading";
+import Image from "next/image";
 
 export const LegendaryList = (props) => {
     const rarity = props.rarity;
@@ -23,13 +24,15 @@ export const LegendaryList = (props) => {
                     if (data.is_legendary) {
                         get("https://pokeapi.co/api/v2/pokemon/" + data.name).then((data) => {
                             if (data.sprites) {
-                                let dataPokemon = {
-                                    name: data.name,
-                                    id: data.id,
-                                    img: data.sprites.other['official-artwork'].front_default
-                                }
+                                if (data.sprites.other['official-artwork'].front_default != null) {
+                                    let dataPokemon = {
+                                        name: data.name,
+                                        id: data.id,
+                                        img: data.sprites.other['official-artwork'].front_default
+                                    }
 
-                                setPokemonListInfo(old => [...old, dataPokemon]);
+                                    setPokemonListInfo(old => [...old, dataPokemon]);
+                                }
                             }
                         });
                     }
@@ -38,19 +41,21 @@ export const LegendaryList = (props) => {
                     if (data.is_mythical) {
                         get("https://pokeapi.co/api/v2/pokemon/" + data.name).then((data) => {
                             if (data.sprites) {
-                                let dataPokemon = {
-                                    name: data.name,
-                                    id: data.id,
-                                    img: data.sprites.other['official-artwork'].front_default
-                                }
+                                if (data.sprites.other['official-artwork'].front_default != null) {
+                                    let dataPokemon = {
+                                        name: data.name,
+                                        id: data.id,
+                                        img: data.sprites.other['official-artwork'].front_default
+                                    }
 
-                                setPokemonListInfo(old => [...old, dataPokemon]);
+                                    setPokemonListInfo(old => [...old, dataPokemon]);
+                                }
                             }
                         });
                     }
                 }
             });
-            if (i == (list.results.length-1)) {
+            if (i == (list.results.length - 1)) {
                 setLoading(false);
             }
         }
@@ -87,7 +92,7 @@ export const LegendaryList = (props) => {
                             <Link key={key} href={'/pokemon/' + item.name}>
                                 <div className={styles.box}>
                                     <div className={styles.image}>
-                                        <img src={item.img} />
+                                        <Image width={200} height={200} src={item.img} />
                                     </div>
                                     <div className={styles.number}>
                                         <span>#{item.id}</span>

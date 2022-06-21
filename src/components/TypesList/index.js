@@ -3,6 +3,7 @@ import { get } from "../../service/api";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Loading } from "../Loading";
+import Image from "next/image";
 
 export const TypesList = (props) => {
     const type = props.type;
@@ -23,13 +24,15 @@ export const TypesList = (props) => {
 
                     get("https://pokeapi.co/api/v2/pokemon/" + data.name).then((data) => {
                         if (data.sprites) {
-                            let dataPokemon = {
-                                name: data.name,
-                                id: data.id,
-                                img: data.sprites.other['official-artwork'].front_default
+                            if (data.sprites.other['official-artwork'].front_default != null) {
+                                let dataPokemon = {
+                                    name: data.name,
+                                    id: data.id,
+                                    img: data.sprites.other['official-artwork'].front_default
+                                }
+    
+                                setPokemonListInfo(old => [...old, dataPokemon]);
                             }
-
-                            setPokemonListInfo(old => [...old, dataPokemon]);
                         }
                     });
                 });
@@ -71,7 +74,7 @@ export const TypesList = (props) => {
                             <Link key={key} href={'/pokemon/' + item.name}>
                                 <div className={styles.box}>
                                     <div className={styles.image}>
-                                        <img src={item.img} />
+                                        <Image width={200} height={200} src={item.img} />
                                     </div>
                                     <div className={styles.number}>
                                         <span>#{item.id}</span>
