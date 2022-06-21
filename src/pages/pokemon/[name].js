@@ -15,6 +15,7 @@ const PokemonDetails = ({ poke, pokeSpecies }) => {
     const [loading, setLoading] = useState(true);
     const [pokemonSpecies, setPokemonSpecies] = useState();
     const [notFound, setNotFound] = useState(false);
+    let namePokemon = poke.name;
 
     const loadAll = async () => {
 
@@ -41,7 +42,7 @@ const PokemonDetails = ({ poke, pokeSpecies }) => {
     return (
         <div>
             <Head>
-                <title>Pokédexmon | {poke.name}</title>
+                <title>Pokédexmon | {namePokemon}</title>
                 <meta name="description" content="See everything about your favorite pokemons in the best pokedex and be the best pokemon trainer in the world! Gotta catch em all!" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta property="og:locale" content="en_US" />
