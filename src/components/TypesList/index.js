@@ -72,7 +72,7 @@ export const TypesList = (props) => {
                     <div className={styles.boxes}>
                         {pokemonListInfo.sort(compareId) && pokemonListInfo.map((item, key) => (
                             <Link key={key} href={'/pokemon/' + item.name}>
-                                <div className={styles.box}>
+                                <div onClick={() => props.setLoading(true)} className={styles.box}>
                                     <div className={styles.image}>
                                         <Image width={200} height={200} src={item.img} />
                                     </div>

@@ -1,13 +1,17 @@
 import Head from 'next/head'
 import { useRouter } from "next/router";
+import { useState } from 'react';
 import { Ads } from '../../components/Ads';
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { Loading } from '../../components/Loading';
 import { TypesController } from '../../components/TypesController';
 import { TypesList } from "../../components/TypesList";
 
 export default function TypesPokemon() {
     const router = useRouter();
+    const [loading, setLoading] = useState(false);
+
 
     return (
         <div>
@@ -26,12 +30,18 @@ export default function TypesPokemon() {
                 <meta property="og:image:height" content="224" />
             </Head>
 
-            <Header />
-            <Ads />
-            <TypesController type={router.query.type}/>
-            <TypesList type={router.query.type}/>
-            <Ads />
-            <Footer />
+            {loading ? (
+                <Loading />
+            ) : (
+                <>
+                    <Header />
+                    <Ads />
+                    <TypesController type={router.query.type} />
+                    <TypesList type={router.query.type} setLoading={setLoading}/>
+                    <Ads />
+                    <Footer />
+                </>
+            )}
         </div>
     )
 }

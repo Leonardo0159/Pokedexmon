@@ -1,10 +1,15 @@
 import Head from 'next/head'
+import { useState } from 'react';
 import { Ads } from '../../components/Ads';
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { LegendaryList } from '../../components/LegendaryList';
+import { Loading } from '../../components/Loading';
 
 export default function Legendary() {
+    const [loading, setLoading] = useState(false);
+
+
     return (
         <div>
             <Head>
@@ -22,11 +27,17 @@ export default function Legendary() {
                 <meta property="og:image:height" content="224" />
             </Head>
 
-            <Header />
-            <Ads />
-            <LegendaryList rarity="legendary" />
-            <Ads />
-            <Footer />
+            {loading ? (
+                <Loading />
+            ) : (
+                <>
+                    <Header />
+                    <Ads />
+                    <LegendaryList rarity="legendary" setLoading={setLoading} />
+                    <Ads />
+                    <Footer />
+                </>
+            )}
         </div>
     )
 }
