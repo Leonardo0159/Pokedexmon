@@ -13,7 +13,6 @@ const TypesPokemon = ({ typePokemon }) => {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
 
-
     return (
         <div>
             <Head>

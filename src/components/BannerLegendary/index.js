@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from './BannerLegendary.module.css'
 
-export const BannerLegendary = () => {
+export const BannerLegendary = (props) => {
     return (
         <div className={styles.bannerLegendary}>
             <div className={styles.container}>
@@ -10,7 +10,7 @@ export const BannerLegendary = () => {
                 <div className={styles.content}>
                     <h2>Legendary Pokemons</h2>
                     <p>Legendary Pokemon are some of the most powerful little monsters in the Pokémon universe, rare creatures with abilities far above others, as well as stats that make them some of the strongest Pokémon in games.</p>
-                    <Link href='/legendary-pokemons'><span className={styles.buttonLearnMore}>See Legendary Pokemons</span></Link>
+                    <Link href='/legendary-pokemons'><span onClick={() => props.setLoading(true)} className={styles.buttonLearnMore}>See Legendary Pokemons</span></Link>
                 </div>
             </div>
         </div>

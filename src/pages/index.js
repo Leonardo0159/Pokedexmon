@@ -3,14 +3,16 @@ import { Ads } from '../components/Ads'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import ReactGA from 'react-ga4';
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { BannerHome } from '../components/BannerHome';
 import { BannerLegendary } from '../components/BannerLegendary';
 import { BannerMythical } from '../components/BannerMythical';
 import { TypesController } from '../components/TypesController';
+import { Loading } from '../components/Loading';
 
 ReactGA.initialize('G-XS8VZGMJ08');
 export default function Home() {
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     ReactGA.send("pageview");
@@ -33,17 +35,23 @@ export default function Home() {
         <meta property="og:image:height" content="224" />
       </Head>
 
-      <Header />
-      <Ads />
-      <BannerHome />
-      <Ads />
-      <BannerLegendary />
-      <Ads />
-      <BannerMythical />
-      <Ads />
-      <TypesController type="home"/>
-      <Ads />
-      <Footer />
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <Header />
+          <Ads />
+          <BannerHome setLoading={setLoading}/>
+          <Ads />
+          <BannerLegendary setLoading={setLoading}/>
+          <Ads />
+          <BannerMythical setLoading={setLoading}/>
+          <Ads />
+          <TypesController type="home" setLoading={setLoading}/>
+          <Ads />
+          <Footer />
+        </>
+      )}
 
     </div>
   )

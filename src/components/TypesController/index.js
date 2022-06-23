@@ -204,6 +204,12 @@ export const TypesController = (props) => {
         }
     }
 
+    const loading = () => {
+        if (type == "home") {
+            props.setLoading(true);
+        }
+    }
+
     return (
         <div className={styles.typesController}>
             <div className={styles.banner}>
@@ -217,58 +223,58 @@ export const TypesController = (props) => {
                     </div>
                     <div className={styles.buttons}>
                         <Link href="/types-pokemon/normal">
-                            <span className={styleNormal()}>Normal</span>
+                            <span onClick={loading} className={styleNormal()}>Normal</span>
                         </Link>
                         <Link href="/types-pokemon/fire">
-                            <span className={styleFire()}>Fire</span>
+                            <span onClick={loading} className={styleFire()}>Fire</span>
                         </Link>
                         <Link href="/types-pokemon/water">
-                            <span className={styleWater()}>Water</span>
+                            <span onClick={loading} className={styleWater()}>Water</span>
                         </Link>
                         <Link href="/types-pokemon/grass">
-                            <span className={styleGrass()}>Grass</span>
+                            <span onClick={loading} className={styleGrass()}>Grass</span>
                         </Link>
                         <Link href="/types-pokemon/flying">
-                            <span className={styleFlying()}>Flying</span>
+                            <span onClick={loading} className={styleFlying()}>Flying</span>
                         </Link>
                         <Link href="/types-pokemon/fighting">
-                            <span className={styleFighting()}>Fighting</span>
+                            <span onClick={loading} className={styleFighting()}>Fighting</span>
                         </Link>
                         <Link href="/types-pokemon/poison">
-                            <span className={stylePoison()}>Poison</span>
+                            <span onClick={loading} className={stylePoison()}>Poison</span>
                         </Link>
                         <Link href="/types-pokemon/electric">
-                            <span className={styleElectric()}>Electric</span>
+                            <span onClick={loading} className={styleElectric()}>Electric</span>
                         </Link>
                         <Link href="/types-pokemon/ground">
-                            <span className={styleGround()}>Ground</span>
+                            <span onClick={loading} className={styleGround()}>Ground</span>
                         </Link>
                         <Link href="/types-pokemon/rock">
-                            <span className={styleRock()}>Rock</span>
+                            <span onClick={loading} className={styleRock()}>Rock</span>
                         </Link>
                         <Link href="/types-pokemon/psychic">
-                            <span className={stylePsychic()}>Psychic</span>
+                            <span onClick={loading} className={stylePsychic()}>Psychic</span>
                         </Link>
                         <Link href="/types-pokemon/ice">
-                            <span className={styleIce()}>Ice</span>
+                            <span onClick={loading} className={styleIce()}>Ice</span>
                         </Link>
                         <Link href="/types-pokemon/bug">
-                            <span className={styleBug()}>Bug</span>
+                            <span onClick={loading} className={styleBug()}>Bug</span>
                         </Link>
                         <Link href="/types-pokemon/ghost">
-                            <span className={styleGhost()}>Ghost</span>
+                            <span onClick={loading} className={styleGhost()}>Ghost</span>
                         </Link>
                         <Link href="/types-pokemon/steel">
-                            <span className={styleSteel()}>Steel</span>
+                            <span onClick={loading} className={styleSteel()}>Steel</span>
                         </Link>
                         <Link href="/types-pokemon/dragon">
-                            <span className={styleDragon()}>Dragon</span>
+                            <span onClick={loading} className={styleDragon()}>Dragon</span>
                         </Link>
                         <Link href="/types-pokemon/dark">
-                            <span className={styleDark()}>Dark</span>
+                            <span onClick={loading} className={styleDark()}>Dark</span>
                         </Link>
                         <Link href="/types-pokemon/fairy">
-                            <span className={styleFairy()}>Fairy</span>
+                            <span onClick={loading} className={styleFairy()}>Fairy</span>
                         </Link>
                     </div>
                 </div>
