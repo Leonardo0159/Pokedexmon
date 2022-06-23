@@ -12,10 +12,7 @@ export const LegendaryList = (props) => {
 
     const loadAll = async () => {
         const url = "";
-        let list;
-
-        url = "https://pokeapi.co/api/v2/pokemon-species?limit=10000&offset=0"
-        list = await get(url);
+        let list = props.listPoke;
 
         for (let i = 0; i < list.results.length; i++) {
 

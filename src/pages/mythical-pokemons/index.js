@@ -5,8 +5,9 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { LegendaryList } from '../../components/LegendaryList';
 import { Loading } from '../../components/Loading';
+import { get } from '../../service/api';
 
-export default function Mythical() {
+const Mythical = ({ listPoke }) => {
     const [loading, setLoading] = useState(false);
 
     return (
@@ -32,7 +33,7 @@ export default function Mythical() {
                 <>
                     <Header />
                     <Ads />
-                    <LegendaryList rarity="mythical" setLoading={setLoading}/>
+                    <LegendaryList rarity="mythical" setLoading={setLoading} listPoke={listPoke}/>
                     <Ads />
                     <Footer />
                 </>
@@ -40,3 +41,12 @@ export default function Mythical() {
         </div>
     )
 }
+
+export async function getServerSideProps(context) {
+
+    let listPoke = await get("https://pokeapi.co/api/v2/pokemon-species?limit=10000&offset=0")
+
+    return { props: { listPoke } }
+}
+
+export default Mythical;

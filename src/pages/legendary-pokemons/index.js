@@ -5,10 +5,10 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { LegendaryList } from '../../components/LegendaryList';
 import { Loading } from '../../components/Loading';
+import { get } from '../../service/api';
 
-export default function Legendary() {
+const Legendary = ({ listPoke }) => {
     const [loading, setLoading] = useState(false);
-
 
     return (
         <div>
@@ -33,7 +33,7 @@ export default function Legendary() {
                 <>
                     <Header />
                     <Ads />
-                    <LegendaryList rarity="legendary" setLoading={setLoading} />
+                    <LegendaryList rarity="legendary" setLoading={setLoading} listPoke={listPoke}/>
                     <Ads />
                     <Footer />
                 </>
@@ -41,3 +41,12 @@ export default function Legendary() {
         </div>
     )
 }
+
+export async function getServerSideProps(context) {
+
+    let listPoke = await get("https://pokeapi.co/api/v2/pokemon-species?limit=10000&offset=0")
+
+    return { props: { listPoke } }
+}
+
+export default Legendary;
