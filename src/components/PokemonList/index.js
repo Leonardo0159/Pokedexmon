@@ -10,20 +10,7 @@ export const PokemonList = (props) => {
     const [pokemonListInfo, setPokemonListInfo] = useState([]);
 
     const loadAll = async () => {
-        const url = "";
-        let list;
-
-        if (page == "1") {
-            console.log("page 1");
-            url = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0"
-            list = await get(url);
-        } else {
-            console.log("page n1");
-            const limit = 40
-            const offset = (parseInt(page) - 1) * 40;
-            url = "https://pokeapi.co/api/v2/pokemon?offset=" + offset + "&limit=40"
-            list = await get(url);
-        }
+        let list = props.listPokemon;
 
         for (let i = 0; i < list.results.length; i++) {
 

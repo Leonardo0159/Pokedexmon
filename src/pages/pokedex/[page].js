@@ -6,8 +6,9 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Loading } from "../../components/Loading";
 import { PokemonList } from "../../components/PokemonList";
+import { get } from "../../service/api";
 
-export default function Page() {
+const Page = ({ listPokemon }) => {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
 
@@ -34,7 +35,7 @@ export default function Page() {
                 <>
                     <Header />
                     <Ads />
-                    <PokemonList page={router.query.page} setLoading={setLoading}/>
+                    <PokemonList page={router.query.page} setLoading={setLoading} listPokemon={listPokemon}/>
                     <Ads />
                     <Footer />
                 </>
@@ -42,3 +43,21 @@ export default function Page() {
         </div>
     )
 }
+
+export async function getServerSideProps(context) {
+    let listPokemon
+
+    if (context.query.page == "1") {
+        console.log("page 1");
+        listPokemon = await get("https://pokeapi.co/api/v2/pokemon?limit=40&offset=0");
+    } else {
+        console.log("page n1");
+        const limit = 40
+        const offset = (parseInt(context.query.page) - 1) * 40;
+        listPokemon = await get("https://pokeapi.co/api/v2/pokemon?offset=" + offset + "&limit=40");
+    }
+
+    return { props: { listPokemon } }
+}
+
+export default Page;
