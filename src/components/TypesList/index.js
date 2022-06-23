@@ -12,11 +12,7 @@ export const TypesList = (props) => {
 
     const loadAll = async () => {
         if (type) {
-            const url = "";
-            let list;
-
-            url = "https://pokeapi.co/api/v2/type/" + type + ""
-            list = await get(url);
+            let list = type;
 
             for (let i = 0; i < list.pokemon.length; i++) {
 

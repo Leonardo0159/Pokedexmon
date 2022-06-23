@@ -7,8 +7,9 @@ import { Header } from "../../components/Header";
 import { Loading } from '../../components/Loading';
 import { TypesController } from '../../components/TypesController';
 import { TypesList } from "../../components/TypesList";
+import { get } from '../../service/api';
 
-export default function TypesPokemon() {
+const TypesPokemon = ({ typePokemon }) => {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
 
@@ -36,8 +37,8 @@ export default function TypesPokemon() {
                 <>
                     <Header />
                     <Ads />
-                    <TypesController type={router.query.type} />
-                    <TypesList type={router.query.type} setLoading={setLoading}/>
+                    <TypesController type={router.query.type}/>
+                    <TypesList type={typePokemon} setLoading={setLoading}/>
                     <Ads />
                     <Footer />
                 </>
@@ -45,3 +46,12 @@ export default function TypesPokemon() {
         </div>
     )
 }
+
+export async function getServerSideProps(context) {
+
+    let typePokemon = await get("https://pokeapi.co/api/v2/type/" + context.query.type)
+
+    return { props: { typePokemon } }
+}
+
+export default TypesPokemon;
