@@ -42,11 +42,8 @@ export default function Home() {
           <Header />
           <Ads />
           <BannerHome setLoading={setLoading}/>
-          <Ads />
           <BannerLegendary setLoading={setLoading}/>
-          <Ads />
           <BannerMythical setLoading={setLoading}/>
-          <Ads />
           <TypesController type="home" setLoading={setLoading}/>
           <Ads />
           <Footer />

@@ -59,6 +59,10 @@
     border: 1px solid #375daa;
 }
 
+.headerNav {
+    width: 65vw;
+}
+
 @media screen and (max-width: 768px) {
     .container {
         margin: 0 2vw;
