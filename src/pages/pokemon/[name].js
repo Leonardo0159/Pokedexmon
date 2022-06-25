@@ -44,6 +44,7 @@ const PokemonDetails = ({ poke, pokeSpecies }) => {
                 <title>Pokédexmon | {namePokemon}</title>
                 <meta name="description" content={"Know everything about "+namePokemon+" and its stats, strengths and weakness with pokedexmon! Gotta catch em all!"} />
                 <link rel="icon" href="/favicon.ico" />
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
                 <meta property="og:locale" content="en_US" />
                 <meta property="og:type" content="article" />
                 <meta property="og:title" content={"Pokédexmon | "+namePokemon} />
