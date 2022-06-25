@@ -30,7 +30,7 @@
 .search {
     flex: 4;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .headerNav {
-    width: 65vw;
+    width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -87,5 +87,9 @@
 
     .search input {
         width: 80vw;
+    }
+
+    .headerNav {
+        width: 100%;
     }
 }
