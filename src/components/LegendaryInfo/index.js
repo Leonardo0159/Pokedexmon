@@ -5,7 +5,7 @@ export const LegendaryInfo = () => {
     return (
         <div className={styles.legendaryInfo}>
             <div className={styles.container}>
-                <h1>Legendary Pokemon</h1>
+                <h1>Legendary Pokémon</h1>
                 <p>
                     Legendary Pokémon are extremely rare and often very powerful Pokémon that are often associated with
                     legends of creation and/or destruction within their endemic regions.

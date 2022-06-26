@@ -5,6 +5,7 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { LegendaryList } from '../../components/LegendaryList';
 import { Loading } from '../../components/Loading';
+import { MythicalInfo } from '../../components/MythicalInfo';
 import { get } from '../../service/api';
 
 const Mythical = ({ listPoke }) => {
@@ -34,7 +35,9 @@ const Mythical = ({ listPoke }) => {
                 <>
                     <Header />
                     <Ads />
-                    <LegendaryList rarity="mythical" setLoading={setLoading} listPoke={listPoke}/>
+                    <LegendaryList rarity="mythical" setLoading={setLoading} listPoke={listPoke} />
+                    <Ads />
+                    <MythicalInfo />
                     <Ads />
                     <Footer />
                 </>
