@@ -5,6 +5,7 @@ import { Ads } from "../../components/Ads";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Loading } from "../../components/Loading";
+import { PokedexInfo } from "../../components/PokedexInfo";
 import { PokemonList } from "../../components/PokemonList";
 import { get } from "../../service/api";
 
@@ -37,6 +38,8 @@ const Page = ({ listPokemon }) => {
                     <Header />
                     <Ads />
                     <PokemonList page={router.query.page} setLoading={setLoading} listPokemon={listPokemon}/>
+                    <Ads />
+                    <PokedexInfo />
                     <Ads />
                     <Footer />
                 </>

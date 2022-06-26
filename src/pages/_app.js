@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Script from "next/script";
+import SRRProvider from 'react-bootstrap/SSRProvider'
 
 function MyApp({ Component, pageProps }) {
 
@@ -12,7 +13,9 @@ function MyApp({ Component, pageProps }) {
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9645579603385719"
         crossorigin="anonymous"
       />
-      <Component {...pageProps} />
+      <SRRProvider>
+        <Component {...pageProps} />
+      </SRRProvider>
     </>
   )
 }

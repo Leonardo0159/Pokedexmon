@@ -1,9 +1,6 @@
 .footer {
     background-color: #212529;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .footerTop {
@@ -33,7 +30,7 @@
 .sideRightTop {
     flex: 1;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .links nav {
