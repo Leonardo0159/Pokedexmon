@@ -16,7 +16,7 @@ const Page = ({ listPokemon }) => {
     return (
         <div>
             <Head>
-                <title>Pokédexmon | Pokedex {router.query.page}</title>
+                <title>Pokédex {router.query.page} | Pokédexmon</title>
                 <meta name="description" content="See everything about your favorite pokemons in the best pokedex and be the best pokemon trainer in the world! Gotta catch em all!" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />

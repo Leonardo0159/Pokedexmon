@@ -13,10 +13,17 @@ const TypesPokemon = ({ typePokemon }) => {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
 
+    const upperCase = (str) => {
+        if (typePokemon) {
+            const strUpperCase = str[0].toUpperCase() + str.substr(1);
+            return strUpperCase;
+        }
+    }
+
     return (
         <div>
             <Head>
-                <title>Pokédexmon | Types Pokemon</title>
+                <title>{upperCase(typePokemon.name)} | Types Pokemon | Pokédexmon</title>
                 <meta name="description" content="See everything about your favorite pokemons in the best pokedex and be the best pokemon trainer in the world! Gotta catch em all!" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
