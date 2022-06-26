@@ -6,12 +6,29 @@ import { TypeCalculator } from '../TypeCalculator';
 import Image from 'next/image';
 
 export const PokemonPresentation = (props) => {
+    console.log("pokemonInfo: ", props.pokemonInfo)
+    console.log("pokemonSpecies: ", props.pokemonSpecies)
 
-    const pokemonInfo = props.pokemonInfo;
-    const pokemonSpecies = props.pokeSpecies;
+    const loadAll = async () => {
+
+        if (props.pokemonInfo != 404 && props.pokeSpecies != 404) {
+            props.setNotFound(false);
+            props.setLoading(false);
+        } else if (props.pokemonInfo != 404) {
+            props.setNotFound(false);
+            props.setLoading(false);
+        } else {
+            props.setNotFound(true);
+            props.setLoading(false);
+        }
+    }
+
+    useEffect(() => {
+        loadAll();
+    }, []);
 
     const styleType = (type) => {
-        if (pokemonInfo) {
+        if (props.pokemonInfo) {
             if (type == "grass") {
                 return styles.grass
             } else if (type == "poison") {
@@ -53,7 +70,7 @@ export const PokemonPresentation = (props) => {
     }
 
     const upperCase = (str) => {
-        if (pokemonInfo) {
+        if (props.pokemonInfo) {
             const strUpperCase = str[0].toUpperCase() + str.substr(1);
             return strUpperCase;
         }
@@ -67,9 +84,9 @@ export const PokemonPresentation = (props) => {
                         <div className={styles.boxImage}>
                             <div className={styles.presentationImage}>
                                 {(() => {
-                                    if (pokemonInfo) {
+                                    if (props.pokemonInfo) {
                                         return (
-                                            <Image width={3000} height={2500} src={pokemonInfo.sprites.other['official-artwork'].front_default} />
+                                            <Image width={3000} height={2500} src={props.pokemonInfo.sprites.other['official-artwork'].front_default} />
                                         )
                                     } else {
                                         return (
@@ -80,20 +97,20 @@ export const PokemonPresentation = (props) => {
                             </div>
                             <div className={styles.boxTypes}>
                                 {(() => {
-                                    if (pokemonInfo) {
-                                        if (pokemonInfo.types.length == 1) {
+                                    if (props.pokemonInfo) {
+                                        if (props.pokemonInfo.types.length == 1) {
                                             return (
                                                 <div className={styles.pokemonTypes}>
-                                                    <span className={styleType(pokemonInfo.types[0].type.name)}>{upperCase(pokemonInfo.types[0].type.name)}</span>
+                                                    <span className={styleType(props.pokemonInfo.types[0].type.name)}>{upperCase(props.pokemonInfo.types[0].type.name)}</span>
                                                 </div>
                                             )
                                         }
-                                        if (pokemonInfo.types.length == 2) {
+                                        if (props.pokemonInfo.types.length == 2) {
 
                                             return (
                                                 <div className={styles.pokemonTypes}>
-                                                    <span className={styleType(pokemonInfo.types[0].type.name)}>{upperCase(pokemonInfo.types[0].type.name)}</span>
-                                                    <span className={styleType(pokemonInfo.types[1].type.name)}>{upperCase(pokemonInfo.types[1].type.name)}</span>
+                                                    <span className={styleType(props.pokemonInfo.types[0].type.name)}>{upperCase(props.pokemonInfo.types[0].type.name)}</span>
+                                                    <span className={styleType(props.pokemonInfo.types[1].type.name)}>{upperCase(props.pokemonInfo.types[1].type.name)}</span>
                                                 </div>
                                             )
                                         }
@@ -110,9 +127,9 @@ export const PokemonPresentation = (props) => {
                         <div className={styles.box}>
                             <div className={styles.pokemonTitle}>
                                 <h1>{(() => {
-                                    if (pokemonInfo) {
+                                    if (props.pokemonInfo) {
                                         return (
-                                            upperCase(pokemonInfo.name)
+                                            upperCase(props.pokemonInfo.name)
                                         )
                                     } else {
                                         return (
@@ -124,14 +141,14 @@ export const PokemonPresentation = (props) => {
                             </div>
                             <div className={styles.pokemonTitle}>
                                 {(() => {
-                                    if (pokemonSpecies) {
-                                        if (pokemonSpecies.is_legendary) {
+                                    if (props.pokemonSpecies) {
+                                        if (props.pokemonSpecies.is_legendary) {
                                             return (
                                                 <div className={styles.rarity}>
                                                     <h3>Rarity: </h3><span>Legendary</span>
                                                 </div>
                                             )
-                                        } else if (pokemonSpecies.is_mythical) {
+                                        } else if (props.pokemonSpecies.is_mythical) {
                                             return (
                                                 <div className={styles.rarity}>
                                                     <h3>Rarity: </h3><span>Mythical</span>
@@ -154,11 +171,11 @@ export const PokemonPresentation = (props) => {
                             </div>
                             <div className={styles.pokemonAttributes}>
                                 {(() => {
-                                    if (pokemonInfo) {
+                                    if (props.pokemonInfo) {
                                         return (
                                             <div className={styles.attributes}>
-                                                <h3>Weight: </h3><span>{pokemonInfo.weight}</span>
-                                                <h3>Height: </h3><span>{pokemonInfo.height}</span>
+                                                <h3>Weight: </h3><span>{props.pokemonInfo.weight}</span>
+                                                <h3>Height: </h3><span>{props.pokemonInfo.height}</span>
                                             </div>
                                         )
                                     } else {
@@ -171,13 +188,13 @@ export const PokemonPresentation = (props) => {
                             <div className={styles.pokemonStats}>
                                 <h3>Stats:</h3>
                                 {(() => {
-                                    if (pokemonInfo) {
-                                        const hp = pokemonInfo.stats[0].base_stat;
-                                        const attack = pokemonInfo.stats[1].base_stat;
-                                        const defense = pokemonInfo.stats[2].base_stat;
-                                        const sAttack = pokemonInfo.stats[3].base_stat;
-                                        const sDefense = pokemonInfo.stats[4].base_stat;
-                                        const speed = pokemonInfo.stats[5].base_stat;
+                                    if (props.pokemonInfo) {
+                                        const hp = props.pokemonInfo.stats[0].base_stat;
+                                        const attack = props.pokemonInfo.stats[1].base_stat;
+                                        const defense = props.pokemonInfo.stats[2].base_stat;
+                                        const sAttack = props.pokemonInfo.stats[3].base_stat;
+                                        const sDefense = props.pokemonInfo.stats[4].base_stat;
+                                        const speed = props.pokemonInfo.stats[5].base_stat;
                                         return (
                                             <div>
                                                 <div>
@@ -215,12 +232,14 @@ export const PokemonPresentation = (props) => {
                         <div className={styles.boxDescription}>
                             <h3>Description</h3>
                             {(() => {
-                                if (pokemonSpecies) {
-                                    const descriptionEn = "";
-                                    for (let i = 0; i < pokemonSpecies.flavor_text_entries.length; i++) {
-                                        if (pokemonSpecies.flavor_text_entries[i].language.name == "en") {
-                                            descriptionEn = pokemonSpecies.flavor_text_entries[i].flavor_text;
-                                            break;
+                                if (props.pokemonSpecies) {
+                                    let descriptionEn = "";
+                                    if (props.pokemonSpecies != 404) {
+                                        for (let i = 0; i < props.pokemonSpecies.flavor_text_entries.length; i++) {
+                                            if (props.pokemonSpecies.flavor_text_entries[i].language.name == "en") {
+                                                descriptionEn = props.pokemonSpecies.flavor_text_entries[i].flavor_text;
+                                                break;
+                                            }
                                         }
                                     }
                                     return (
@@ -238,23 +257,23 @@ export const PokemonPresentation = (props) => {
                 <div className={styles.presentation}>
 
                     {(() => {
-                        if (pokemonInfo) {
-                            if (pokemonInfo.types.length == 1) {
+                        if (props.pokemonInfo) {
+                            if (props.pokemonInfo.types.length == 1) {
                                 return (
                                     <div className={styles.boxPokeTypes}>
-                                        <TypeCalculator type={pokemonInfo.types[0].type.name} />
+                                        <TypeCalculator type={props.pokemonInfo.types[0].type.name} />
                                     </div>
                                 )
                             }
-                            if (pokemonInfo.types.length == 2) {
+                            if (props.pokemonInfo.types.length == 2) {
                                 return (
                                     <div className={styles.pokemonTypes}>
                                         <div className={styles.boxPokeTypes}>
-                                            <TypeCalculator type={pokemonInfo.types[0].type.name} />
+                                            <TypeCalculator type={props.pokemonInfo.types[0].type.name} />
                                         </div>
 
                                         <div className={styles.boxPokeTypes}>
-                                            <TypeCalculator type={pokemonInfo.types[1].type.name} />
+                                            <TypeCalculator type={props.pokemonInfo.types[1].type.name} />
                                         </div>
                                     </div>
                                 )

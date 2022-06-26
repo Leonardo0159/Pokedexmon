@@ -11,32 +11,10 @@ import { Ads } from "../../components/Ads";
 import 'isomorphic-fetch';
 
 const PokemonDetails = ({ poke, pokeSpecies }) => {
-    const [pokemonInfo, setPokemonInfo] = useState();
-    const [loading, setLoading] = useState(true);
-    const [pokemonSpecies, setPokemonSpecies] = useState();
+    const [loading, setLoading] = useState(false);
     const [notFound, setNotFound] = useState(false);
     let namePokemon = poke.name;
 
-    const loadAll = async () => {
-
-        if (poke != 404 && pokeSpecies != 404) {
-            setNotFound(false);
-            setPokemonInfo(poke);
-            setPokemonSpecies(pokeSpecies);
-            setLoading(false);
-        } else if (poke != 404) {
-            setNotFound(false);
-            setPokemonInfo(poke);
-            setLoading(false);
-        } else {
-            setNotFound(true);
-            setLoading(false);
-        }
-    }
-
-    useEffect(() => {
-        loadAll();
-    }, []);
 
     const upperCase = (str) => {
         if (poke) {
@@ -73,7 +51,7 @@ const PokemonDetails = ({ poke, pokeSpecies }) => {
                     ) : (
                         <div>
                             <Ads />
-                            <PokemonPresentation pokemonInfo={pokemonInfo} pokeSpecies={pokemonSpecies} />
+                            <PokemonPresentation pokemonInfo={poke} pokemonSpecies={pokeSpecies} setLoading={setLoading} setNotFound={setNotFound}/>
                             <Ads />
                         </div>
                     )}
