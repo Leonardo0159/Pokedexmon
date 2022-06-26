@@ -12,12 +12,12 @@ export const MythicalInfo = () => {
                     In Japanese media, Mythical Pokémon and Legendary Pokémon have always been presented as distinct groups.
                     In non-Japanese media prior to Generation V, Mythical Pokémon and Legendary Pokémon were both considered
                     to be Legendary Pokémon (and the term Mythical Pokémon was unused, with some fans calling Mythical
-                    Pokémon "Event Legendaries", reflecting how they usually must be obtained at an event, but they are not a
+                    Pokémon &quot;Event Legendaries&quot;, reflecting how they usually must be obtained at an event, but they are not a
                     subset of them); since Generation V, the two groups are presented as distinct groups in all official media.
                     In Pokémon Ranger: Guardian Signs, Mythical Pokémon are referred to as rare Pokémon.
                 </p>
                 <p>
-                    Mythical Pokémon were originally known in common conversation as "Event Only Pokémon" for a reason.
+                    Mythical Pokémon were originally known in common conversation as &quot;Event Only Pokémon&quot; for a reason.
                     These Pokémon are so rare that they are typically only available through going to an event distribution
                     and either receiving the Pokémon itself, or an item to go get the Pokémon within the wild. Due to the
                     fact that these are typically only from events and have limited distributions, these Pokémon are banned
