@@ -70,7 +70,7 @@ export const PokemonPresentation = (props) => {
     }
 
     const upperCase = (str) => {
-        if (props.pokemonInfo) {
+        if (props.pokemonInfo && (props.pokemonInfo != 404)) {
             const strUpperCase = str[0].toUpperCase() + str.substr(1);
             return strUpperCase;
         }
@@ -84,7 +84,7 @@ export const PokemonPresentation = (props) => {
                         <div className={styles.boxImage}>
                             <div className={styles.presentationImage}>
                                 {(() => {
-                                    if (props.pokemonInfo) {
+                                    if (props.pokemonInfo && (props.pokemonInfo != 404)) {
                                         return (
                                             <Image width={3000} height={2500} src={props.pokemonInfo.sprites.other['official-artwork'].front_default} />
                                         )
@@ -97,7 +97,7 @@ export const PokemonPresentation = (props) => {
                             </div>
                             <div className={styles.boxTypes}>
                                 {(() => {
-                                    if (props.pokemonInfo) {
+                                    if (props.pokemonInfo && (props.pokemonInfo != 404)) {
                                         if (props.pokemonInfo.types.length == 1) {
                                             return (
                                                 <div className={styles.pokemonTypes}>
@@ -188,7 +188,7 @@ export const PokemonPresentation = (props) => {
                             <div className={styles.pokemonStats}>
                                 <h3>Stats:</h3>
                                 {(() => {
-                                    if (props.pokemonInfo) {
+                                    if (props.pokemonInfo && (props.pokemonInfo != 404)) {
                                         const hp = props.pokemonInfo.stats[0].base_stat;
                                         const attack = props.pokemonInfo.stats[1].base_stat;
                                         const defense = props.pokemonInfo.stats[2].base_stat;
@@ -257,7 +257,7 @@ export const PokemonPresentation = (props) => {
                 <div className={styles.presentation}>
 
                     {(() => {
-                        if (props.pokemonInfo) {
+                        if (props.pokemonInfo && (props.pokemonInfo != 404)) {
                             if (props.pokemonInfo.types.length == 1) {
                                 return (
                                     <div className={styles.boxPokeTypes}>
