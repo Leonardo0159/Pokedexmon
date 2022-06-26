@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Ads } from '../../components/Ads';
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { LegendaryInfo } from '../../components/LegendaryInfo';
 import { LegendaryList } from '../../components/LegendaryList';
 import { Loading } from '../../components/Loading';
 import { get } from '../../service/api';
@@ -35,6 +36,8 @@ const Legendary = ({ listPoke }) => {
                     <Header />
                     <Ads />
                     <LegendaryList rarity="legendary" setLoading={setLoading} listPoke={listPoke}/>
+                    <Ads />
+                    <LegendaryInfo />
                     <Ads />
                     <Footer />
                 </>
