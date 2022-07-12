@@ -255,7 +255,6 @@ export const PokemonPresentation = (props) => {
                     </div>
                 </div>
                 <div className={styles.presentation}>
-
                     {(() => {
                         if (props.pokemonInfo && (props.pokemonInfo != 404)) {
                             if (props.pokemonInfo.types.length == 1) {
