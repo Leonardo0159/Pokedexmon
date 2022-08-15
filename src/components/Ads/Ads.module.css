@@ -29,6 +29,19 @@
 }
 
 @media screen and (max-width: 768px) {
+
+    .container {
+        margin: 0 0vw;
+    }
+
+    .body {
+        background-color: #fdc100;
+        border-radius: 15px;
+        padding-bottom: 2rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
     .title {
         padding-top: 1rem;
         padding-bottom: 1rem;
