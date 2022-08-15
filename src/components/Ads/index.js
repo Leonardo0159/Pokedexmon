@@ -5,7 +5,9 @@ export const Ads = () => {
     return (
         <div className={styles.ads}>
             <div className={styles.container}>
-                <SideAd />
+                <div className={styles.body}>
+                    <SideAd />
+                </div>
             </div>
         </div>
     )

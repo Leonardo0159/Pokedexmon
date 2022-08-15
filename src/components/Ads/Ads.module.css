@@ -5,3 +5,12 @@
 .container {
     margin: 0 15vw;
 }
+
+.body {
+    background-color: #fdc100;
+    border-radius: 15px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
