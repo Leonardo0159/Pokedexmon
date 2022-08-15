@@ -9,8 +9,21 @@
 .body {
     background-color: #fdc100;
     border-radius: 15px;
-    padding-top: 2rem;
     padding-bottom: 2rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
+}
+
+.title {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.title span{
+    font-weight: bold;
+    color: black;
 }
