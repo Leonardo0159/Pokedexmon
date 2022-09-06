@@ -18,12 +18,6 @@ export default function Home() {
     ReactGA.send("pageview");
   })
 
-  const testeAd = () => {
-    return (
-      <Ads />
-    )
-  }
-
   return (
     <div>
       <Head>
