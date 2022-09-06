@@ -1,20 +1,11 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import SideAd from "../SideAd";
 import styles from "./Ads.module.css";
 
 export const Ads = () => {
-
-    const [teste, setTeste] = useState(1);
-
-    console.log(teste)
-
-    useEffect(() => {
-        content()
-    }, [teste])
-
-    const content = () => {
-        return (
+    
+    return (
+        <div className={styles.ads}>
             <div className={styles.container}>
                 <div className={styles.body}>
                     <div className={styles.title}>
@@ -23,13 +14,6 @@ export const Ads = () => {
                     <SideAd />
                 </div>
             </div>
-        )
-    }
-
-    return (
-        <div className={styles.ads}>
-            <button onClick={() => {setTeste(teste+1)}}>teste</button>
-            {content()}
         </div>
     )
 }
