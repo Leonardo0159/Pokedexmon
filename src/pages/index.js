@@ -47,8 +47,7 @@ export default function Home() {
       ) : (
         <>
           <Header />
-          <button onClick={() => {testeAd}}>teste</button>
-          {testeAd()}
+          <Ads />
           <BannerHome setLoading={setLoading} />
           <Ads />
           <BannerLegendary setLoading={setLoading} />
