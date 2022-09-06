@@ -16,19 +16,21 @@ const SideAd = () => {
       // Check if Adsense script is loaded every 300ms
       if (window.adsbygoogle) {
         pushAd()
+        console.log("teste")
         // clear the interval once the ad is pushed so that function isn't called indefinitely
-        clearInterval(interval)
+        
       }
-    }, 300)
+    }, 10000)
 
     return () => {
       clearInterval(interval)
     }
   }, [])
+
   return (
     <ins
       className="adsbygoogle"
-      style={{ display: "block"}}
+      style={{ display: "block" }}
       data-ad-client="ca-pub-9645579603385719"
       data-ad-slot="9441680405"
       data-ad-format="auto"
