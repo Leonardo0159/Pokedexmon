@@ -18,9 +18,9 @@ const SideAd = () => {
         pushAd()
         console.log("teste")
         // clear the interval once the ad is pushed so that function isn't called indefinitely
-        
+        clearInterval(interval)
       }
-    }, 10000)
+    }, 300)
 
     return () => {
       clearInterval(interval)
