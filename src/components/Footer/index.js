@@ -22,6 +22,7 @@ export const Footer = () => {
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="justify-content-between flex-grow-1 pe-3">
                   <Nav.Link href="/">Home</Nav.Link>
+                  <Nav.Link href="/poketv">PokéTv</Nav.Link>
                   <Nav.Link href="/pokedex/1">Pokédex</Nav.Link>
                   <Nav.Link href="/legendary-pokemons">Legendary Pokemon</Nav.Link>
                   <Nav.Link href="/mythical-pokemons">Mythical Pokemon</Nav.Link>

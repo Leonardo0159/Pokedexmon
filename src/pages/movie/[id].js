@@ -3,6 +3,7 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { MoviePresentation } from "../../components/MoviePresentation";
 import { useRouter } from "next/router";
+import { Ads } from "../../components/Ads";
 
 const Movie = ({movie}) => {
     const router = useRouter();
@@ -10,7 +11,7 @@ const Movie = ({movie}) => {
     return (
         <div>
             <Head>
-                <title>{movie.name} | Pokédexmon</title>
+                <title>Download {movie.name} | Pokédexmon</title>
                 <meta name="description" content={movie.description} />
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -26,7 +27,9 @@ const Movie = ({movie}) => {
             </Head>
 
             <Header />
+            <Ads />
             <MoviePresentation movie={movie}/>
+            <Ads />
             <Footer />
 
         </div>

@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { Ads } from '../../components/Ads';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { MovieList } from '../../components/MovieList';
@@ -23,7 +24,9 @@ const Poketv = () => {
             </Head>
 
             <Header />
+            <Ads />
             <MovieList />
+            <Ads />
             <Footer />
         </div>
     )

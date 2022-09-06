@@ -54,6 +54,7 @@ export const Header = () => {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                   <Nav className="justify-content-end flex-grow-1 pe-3">
+                    <Nav.Link href="/poketv">PokéTv</Nav.Link>
                     <Nav.Link href="/pokedex/1">Pokédex</Nav.Link>
                     <Nav.Link href="/legendary-pokemons">Legendary Pokemon</Nav.Link>
                     <Nav.Link href="/mythical-pokemons">Mythical Pokemon</Nav.Link>

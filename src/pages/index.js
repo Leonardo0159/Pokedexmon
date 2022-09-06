@@ -18,6 +18,12 @@ export default function Home() {
     ReactGA.send("pageview");
   })
 
+  const testeAd = () => {
+    return (
+      <Ads />
+    )
+  }
+
   return (
     <div>
       <Head>
@@ -41,14 +47,15 @@ export default function Home() {
       ) : (
         <>
           <Header />
+          <button onClick={() => {testeAd}}>teste</button>
+          {testeAd()}
+          <BannerHome setLoading={setLoading} />
           <Ads />
-          <BannerHome setLoading={setLoading}/>
+          <BannerLegendary setLoading={setLoading} />
           <Ads />
-          <BannerLegendary setLoading={setLoading}/>
+          <BannerMythical setLoading={setLoading} />
           <Ads />
-          <BannerMythical setLoading={setLoading}/>
-          <Ads />
-          <TypesController type="home" setLoading={setLoading}/>
+          <TypesController type="home" setLoading={setLoading} />
           <Ads />
           <Footer />
         </>
